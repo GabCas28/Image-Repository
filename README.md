@@ -11,6 +11,6 @@ Without entering in authorization issues, this project intention is to create a 
 
 The [intitial configuration file](/doc/Initial%20Set-Up.md).
 
-## Licencia 📄
+## License 📄
 
-This project is under the [Creative Commons Zero v1.0 Universal license](LICENSE.md).
+This project is under the [GPL-3.0 License](LICENSE.md).
