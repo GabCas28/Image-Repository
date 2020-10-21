@@ -9,7 +9,7 @@ Without entering in authorization issues, this project intention is to create a 
 
 ## Set Up 🚀
 
-The [intitial configuration file](/doc/Initial%20Set-Up.md).
+For pull configuration and Key pair take a look at the [intitial configuration file](/doc/Initial%20Set-Up.md).
 
 ## License 📄
 
