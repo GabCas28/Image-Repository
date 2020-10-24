@@ -28,7 +28,7 @@ The following ones try to cover all the main features to implement:
 
 * [As a **busy user** I want to have **fast responses** in order to **optimize my schedule**](https://github.com/GabCas28/Image-Repository/issues/10)
 
-## Milestones and Issues
+## Milestones and Issues :golf:
 
 As a planning for the project, a few milestones are set, covering the previously mentioned features.
 
