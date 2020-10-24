@@ -37,7 +37,7 @@ As a planning for the project, a few milestones are set, covering the previously
   * [Select Project Architecture](https://github.com/GabCas28/Image-Repository/issues/5)
 
 * [Set-Up Event Architecture](https://github.com/GabCas28/Image-Repository/milestone/3)
-    * [Construct an Event Based Architecture](https://github.com/GabCas28/Image-Repository/issues/10)
+  * [Construct an Event Based Architecture](https://github.com/GabCas28/Image-Repository/issues/10)
 * [Picture management features](https://github.com/GabCas28/Image-Repository/milestone/4)
   * [Allow users to upload pictures](https://github.com/GabCas28/Image-Repository/issues/6)
 
@@ -48,6 +48,8 @@ As a planning for the project, a few milestones are set, covering the previously
 
 * [Develop Picture Qualification](https://github.com/GabCas28/Image-Repository/milestone/6)
   * [Implement Qualification system](https://github.com/GabCas28/Image-Repository/issues/8)
+
+All the open issues are grouped inside this [project roadmap](https://.github.com/GabCas28/Image-Repository/projects/1)
 
 ## Motivation 📖
 
