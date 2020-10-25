@@ -1,7 +1,39 @@
 class Review {
-    constructor(id, username, title: String, content: String){
+    id;
+    username;
+    title;
+    content;
+    constructor(id = '', username = '', title: String = '', content: String = '') {
+        this.id = id;
+        this.username = username;
+        this.title = title;
+        this.content = content;
     }
-    get(){};
-    save(){};
-    delete(){};
+    getId() {
+        return true;
+    }
+    getUsername() {
+        return true;
+    }
+    setUsername(username) {
+        return username;
+    }
+    getTitle() {
+        return true;
+    }
+    setTitle(title) {
+        return title;
+    }
+    getContent() {
+        return true;
+    }
+    setContent(content) {
+        return content
+    }
+    save() {
+        return true;
+    };
+    delete() {
+        return true;
+    };
 }
