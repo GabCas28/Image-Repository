@@ -28,9 +28,10 @@ The following ones try to cover all the main features to implement:
 
 * [As a **busy user** I want to have **fast responses** in order to **optimize my schedule**](https://github.com/GabCas28/Image-Repository/issues/10)
 
-## Milestones and Issues :golf:
+## Project Planning in Milestones and Issues :golf:
 
-As a planning for the project, a few milestones are set, covering the previously mentioned features.
+As a planning for the project a few milestones are set, along with several issues covering the previously mentioned User Stories. 
+All the open issues are grouped inside the [project roadmap](https://.github.com/GabCas28/Image-Repository/projects/1).
 
 * [Project Planning](https://github.com/GabCas28/Image-Repository/milestone/2) (For this week)
   * [Write down user stories](https://github.com/GabCas28/Image-Repository/issues/4)
@@ -49,7 +50,6 @@ As a planning for the project, a few milestones are set, covering the previously
 * [Develop Picture Qualification](https://github.com/GabCas28/Image-Repository/milestone/6)
   * [Implement Qualification system](https://github.com/GabCas28/Image-Repository/issues/8)
 
-All the open issues are grouped inside this [project roadmap](https://.github.com/GabCas28/Image-Repository/projects/1)
 
 ## Motivation 📖
 
