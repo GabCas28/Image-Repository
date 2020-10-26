@@ -31,7 +31,7 @@ The following ones try to cover all the main features to implement:
 ## Project Planning in Milestones and Issues :golf:
 
 As a planning for the project a few milestones are set, along with several issues covering the previously mentioned User Stories. 
-All the open issues are grouped inside the [project roadmap](https://.github.com/GabCas28/Image-Repository/projects/1).
+All the open issues are grouped inside the [project roadmap](https://github.com/GabCas28/Image-Repository/projects/1).
 
 * [Project Planning](https://github.com/GabCas28/Image-Repository/milestone/2) (For this week)
   * [Write down user stories](https://github.com/GabCas28/Image-Repository/issues/4)
