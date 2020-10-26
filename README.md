@@ -10,6 +10,14 @@ Since uploading and sometimes serving pictures may take a long time, an **event 
 
 This way, we avoid freezing server threads, unloading its charge. We also achieve a faster response and a smoother user experience.
 
+The gateway will receive the requests and send events to the processor. It will create an event queue and generate dedicated processes. These processes will update the database and a thin layer that is an aggreate of information ready to read fby the user.
+
+Whenever the user makes a request, he will wait for no response as it is already prepared in the thin data layer. 
+
+The tools to use are unclear yet, probably will be MongoDB for the databases, RabbitMQ as a message broker and Celery as a distributed job queue.
+
+<img src="./doc/img/Architecture%20Diagram-02.jpg" alt="drawing" width="400"/>
+
 ## User Stories :eyes:
 
 Some different User Stories can be defined for this project using the following structure:
