@@ -1,4 +1,4 @@
-entidad: src/Picture.ts
-Rating: src/Rating.ts
-Review: src/Review.ts
-
+entidad:
+  - src/Picture.ts
+  - src/Rating.ts
+  - src/Review.ts
