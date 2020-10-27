@@ -10,9 +10,9 @@ Since uploading and sometimes serving pictures may take a long time, an **event 
 
 This way, we avoid freezing server threads, unloading its charge. We also achieve a faster response and a smoother user experience.
 
-The gateway will receive the requests and send events to the processor. It will create an event queue and generate dedicated processes. These processes will update the database and a thin layer that is an aggreate of information ready to read fby the user.
+Aa a initial approach of the architecture, the gateway will receive the requests and them to the processor. The processor will create an event queue and generate dedicated processes. These processes will update the database and a thin layer that is an aggreate of information ready to read by the user.
 
-Whenever the user makes a request, he will wait for no response as it is already prepared in the thin data layer. 
+This way, whenever the user makes a request, he will wait for no response as it is already prepared in the thin data layer. 
 
 The tools to use are unclear yet, probably will be MongoDB for the databases, RabbitMQ as a message broker and Celery as a distributed job queue.
 
@@ -58,6 +58,14 @@ All the open issues are grouped inside the [project roadmap](https://github.com/
 * [Develop Picture Qualification](https://github.com/GabCas28/Image-Repository/milestone/6)
   * [Implement Qualification system](https://github.com/GabCas28/Image-Repository/issues/8)
 
+## Linked entity classes :link:
+
+The initial classes represent the basic structure of the objects that will be stored into the database, with the elemental CRUD (Create, Read, Update, Dete) operations.
+They are the following:
+
+- [Picture](./src/Picture.ts)
+- [Rating](./src/Rating.ts)
+- [Review](./src/Review.ts)
 
 ## Motivation 📖
 
