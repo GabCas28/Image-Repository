@@ -10,11 +10,9 @@ Since uploading and sometimes serving pictures may take a long time, an **event 
 
 This way, we avoid freezing server threads, unloading its charge. We also achieve a faster response and a smoother user experience.
 
-Aa a initial approach of the architecture, the gateway will receive the requests and them to the processor. The processor will create an event queue and generate dedicated processes. These processes will update the database and a thin layer that is an aggreate of information ready to read by the user.
+As a initial approach of how the data will flow in the system, the gateway will receive the requests and send them to the queue processor. The processor will create an event queue and generate dedicated processes. These processes update the databases and a thin layer that is an aggreate of information ready to read by the user. Whenever the user makes a request, he will wait for no response as it is already prepared in the thin data layer. 
 
-This way, whenever the user makes a request, he will wait for no response as it is already prepared in the thin data layer. 
-
-The tools to use are unclear yet, probably will be MongoDB for the databases, RabbitMQ as a message broker and Celery as a distributed job queue.
+The tools and frameworks to use are unclear yet, probably MongoDB for the databases, RabbitMQ as a message broker and Celery as a distributed job queue.
 
 ## User Stories :eyes:
 
