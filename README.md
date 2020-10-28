@@ -16,8 +16,6 @@ This way, whenever the user makes a request, he will wait for no response as it 
 
 The tools to use are unclear yet, probably will be MongoDB for the databases, RabbitMQ as a message broker and Celery as a distributed job queue.
 
-<img src="./doc/img/Architecture%20Diagram-02.jpg" alt="drawing" width="400"/>
-
 ## User Stories :eyes:
 
 Some different User Stories can be defined for this project using the following structure:
