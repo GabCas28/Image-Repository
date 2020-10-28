@@ -39,22 +39,23 @@ The following ones try to cover all the main features to implement:
 As a planning for the project a few milestones are set, along with several issues covering the previously mentioned User Stories. 
 All the open issues are grouped inside the [project roadmap](https://github.com/GabCas28/Image-Repository/projects/1).
 
-* [Project Planning](https://github.com/GabCas28/Image-Repository/milestone/2) (For this week)
-  * [Write down user stories](https://github.com/GabCas28/Image-Repository/issues/4)
-  * [Select Project Architecture](https://github.com/GabCas28/Image-Repository/issues/5)
+1. [Project Planning](https://github.com/GabCas28/Image-Repository/milestone/2) (For this week)
+    * [Write down user stories](https://github.com/GabCas28/Image-Repository/issues/4)
+    * [Select Project Architecture](https://github.com/GabCas28/Image-Repository/issues/5)
 
-* [Set-Up Event Architecture](https://github.com/GabCas28/Image-Repository/milestone/3)
-  * [Construct an Event Based Architecture](https://github.com/GabCas28/Image-Repository/issues/10)
-* [Picture management features](https://github.com/GabCas28/Image-Repository/milestone/4)
-  * [Allow users to upload pictures](https://github.com/GabCas28/Image-Repository/issues/6)
+2. [Set-Up Event Architecture](https://github.com/GabCas28/Image-Repository/milestone/3)
+    * [Construct an Event Based Architecture](https://github.com/GabCas28/Image-Repository/issues/10)
+  
+3. [Picture management features](https://github.com/GabCas28/Image-Repository/milestone/4)
+    * [Allow users to upload pictures](https://github.com/GabCas28/Image-Repository/issues/6)
 
-  * [Allow users to display pictures](https://github.com/GabCas28/Image-Repository/issues/7)
+    * [Allow users to display pictures](https://github.com/GabCas28/Image-Repository/issues/7)
 
-* [Implement Comment System](https://github.com/GabCas28/Image-Repository/milestone/5)
-  * [Allow comments of pictures](https://github.com/GabCas28/Image-Repository/issues/9)
+4. [Implement Comment System](https://github.com/GabCas28/Image-Repository/milestone/5)
+    * [Allow comments of pictures](https://github.com/GabCas28/Image-Repository/issues/9)
 
-* [Develop Picture Qualification](https://github.com/GabCas28/Image-Repository/milestone/6)
-  * [Implement Qualification system](https://github.com/GabCas28/Image-Repository/issues/8)
+5. [Develop Picture Qualification](https://github.com/GabCas28/Image-Repository/milestone/6)
+    * [Implement Qualification system](https://github.com/GabCas28/Image-Repository/issues/8)
 
 ## Linked entity classes :link:
 
