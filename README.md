@@ -2,7 +2,7 @@
 
 # Image Repository
 
-_The main objective of the project is to allow the user to store, share and review images._
+_The **main** objective of the project is to allow the user to store, share and review images._
 
 ## Architecture :european_castle:
 
@@ -10,7 +10,7 @@ Since uploading and sometimes serving pictures may take a long time, an **event 
 
 This way, we avoid freezing server threads, unloading its charge. We also achieve a faster response and a smoother user experience.
 
-The tools and frameworks to use are unclear yet, probably MongoDB for the databases, RabbitMQ as a message broker and Celery as a distributed job queue.
+The tools and frameworks to use are MongoDB for the databases, RabbitMQ as a message broker and Celery as a distributed job queue. The structure of the services will be written in Node, and the messages will be sent to the Celery system, so the system will use a combination of different languages: Python for the events; Javascript for the logic; and Typescript for the database object interfaces.
 
 ## User Stories :eyes:
 
@@ -30,49 +30,54 @@ The following ones try to cover all the main features to implement:
 
 * [As a **busy user** I want to have **fast responses** in order to **optimize my schedule**](https://github.com/GabCas28/Image-Repository/issues/10)
 
-## Project Planning in Milestones and Issues :golf:
+## Project Planning :golf:
 
-As a planning for the project a few milestones are set, along with several issues covering the previously mentioned User Stories. 
-All the open issues are grouped inside the [project roadmap](https://github.com/GabCas28/Image-Repository/projects/1).
+As a planning for the project a few milestones are set, along with several issues covering the previously mentioned User Stories.
+All the open issues are grouped inside the **[project roadmap](https://github.com/GabCas28/Image-Repository/projects/1)**.
 
-1. [Project Planning](https://github.com/GabCas28/Image-Repository/milestone/2) (For this week)
-    * [Write down user stories](https://github.com/GabCas28/Image-Repository/issues/4)
-    * [Select Project Architecture](https://github.com/GabCas28/Image-Repository/issues/5)
-
-2. [Set-Up Event Architecture](https://github.com/GabCas28/Image-Repository/milestone/3)
+0. [Set-Up Event Architecture](https://github.com/GabCas28/Image-Repository/milestone/3)
     * [Construct an Event Based Architecture](https://github.com/GabCas28/Image-Repository/issues/10)
-  
-3. [Picture management features](https://github.com/GabCas28/Image-Repository/milestone/4)
+
+1. [Picture management features](https://github.com/GabCas28/Image-Repository/milestone/4)
     * [Allow users to upload pictures](https://github.com/GabCas28/Image-Repository/issues/6)
 
     * [Allow users to display pictures](https://github.com/GabCas28/Image-Repository/issues/7)
 
-4. [Implement Comment System](https://github.com/GabCas28/Image-Repository/milestone/5)
+2. [Implement Comment System](https://github.com/GabCas28/Image-Repository/milestone/5)
     * [Allow comments of pictures](https://github.com/GabCas28/Image-Repository/issues/9)
 
-5. [Develop Picture Qualification](https://github.com/GabCas28/Image-Repository/milestone/6)
+3. [Develop Picture Qualification](https://github.com/GabCas28/Image-Repository/milestone/6)
     * [Implement Qualification system](https://github.com/GabCas28/Image-Repository/issues/8)
+
+The first thing to do is to allow the user to upload pictures. Since starting the environment and everything needed for this purpose takes a bit longer, it will take at least two weeks and a half to get it implemented. This time includes: setting up a database, researching and installing the tools needed, and getting the system running. Setting up everything is essential to start uploading the first pictures, that's why Milestone "Set-Up Event Architecture" is included in this time chunk and it should be completed along with the Milestone 1, "Picture management features".
+
+After that, retrieving a list of pictures should be easy, and for that only one week and a half will be necessary.
+
+Once the picture system is up and running, creating a new service for comments will be due. Since it's not clear if they will make use of the event system, a deadline of two weeks is set.
+
+The same goes for the rating system, however, as it will be similar to the comments, only two weeks are needed to add this functionality.
+
+If the project is not good enough and if there is enough time, new features might be added once the basic structure is done, such as: password-secured pictures, thumbnail generation, blur image pre-load, etc. And that depends on how many times I need to redeliver the same things only to satisfy the minimal expectations.
 
 ## Linked entity classes :link:
 
-The initial classes represent the basic structure of the objects that will be stored into the database, with the elemental CRUD (Create, Read, Update, Dete) operations.
-They are the following:
+These classes represent the basic structure of the objects that will be stored into the database, along with the elemental CRUD (Create, Read, Update, Delete) operations. **These interface operations are not considered for the user to interact with**, but for the program itself. Which will need to update a picture when the uploading event is done, or delete it if there was a fatal error uploading the file. Some undefined elements are set, and will be taken care when the implementation time comes. Because new issues and a long road lies ahead of the project to complete them and many other classes and functions.
 
-- [Picture](./src/Picture.ts)
-- [Rating](./src/Rating.ts)
-- [Review](./src/Review.ts)
+The initial database interfaces are the following:
+
+* [Picture](./src/Picture.ts)
+* [Rating](./src/Rating.ts)
+* [Review](./src/Review.ts)
+
+The classes remain intact, yet suggestions are welcome and considered for the future.
 
 ## Motivation 📖
 
-Usually photographers make pictures and want to share them with a remote audience. They may want to receive feedback about them as well.  
-
-In fact, this is a common problem since any type of image a user can upload into any app, usually needs to be stored and retrieved many times. Therefore, a lot of applications and services make use of image management and similar resources. This is the reason to develop this small yet potentially useful project.
-
-Without entering in authorization issues, this project intention is to create a scalable module that can be introduced into other projects, managing the pictures and allowing to add comments and reviews from other users.
+[Link to the motivations of the project](/doc/Motivation.md).
 
 ## Set Up 🚀
 
-For initial configuration og Github and SSH key pairing, take a look at the [initial configuration file](/doc/Initial%20Set-Up.md).
+[Unitial configuration file](/doc/Initial%20Set-Up.md).
 
 ## License 📄
 
