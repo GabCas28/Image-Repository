@@ -61,7 +61,7 @@ If there is enough time, new features might be added once the basic structure is
 
 ## Linked entity classes :link:
 
-These classes represent the basic structure of the objects that will be stored into the database, along with the elemental CRUD (Create, Read, Update, Delete) operations. **These interface operations are not considered for the user to interact with, but for the program itself.** Which will need to update a picture when the uploading event is done, or delete it if there was a fatal error uploading the file. Some undefined elements are set, and will be taken care when the implementation time comes. Because new issues and a long road lies ahead of the project to complete them, as well as many other classes and functions.
+These classes represent the basic structure of the objects that will be stored into the database, along with the elemental CRUD (Create, Read, Update, Delete) operations. **These interface operations are not considered for the user to interact with, but for the program itself.** Which will need to update a picture when the uploading event is done, or delete it if there was a fatal error uploading the file. Some undefined elements are set, and will be taken care when the implementation time comes.
 
 The initial database interfaces are the following:
 
