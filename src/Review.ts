@@ -4,13 +4,10 @@ class Review {
   title;
   content;
   constructor(
-    id = undefined,
-    username = undefined,
+    id,
+    username,
     title: String = "",
     content: String = ""
   ) {}
   save() {}
-  read() {}
-  update() {}
-  delete() {}
 }
