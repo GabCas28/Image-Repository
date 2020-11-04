@@ -59,7 +59,7 @@ If there is enough time, new features might be added once the basic structure is
 
 ## Linked entity classes :link:
 
-These classes represent the basic structure of the objects that will be stored into the database, along with the elemental CRUD (Create, Read, Update, Delete) operations.
+These classes represent the basic structure of the objects that will be stored into the database.
 
 The initial database interfaces are the following:
 
