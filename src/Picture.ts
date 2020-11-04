@@ -4,14 +4,11 @@ class Picture {
   title;
   description;
   constructor(
-    id = undefined,
-    username = undefined,
+    id,
+    username,
     title: String = "",
     description: String = ""
   ) {}
 
   save() {}
-  read() {}
-  update() {}
-  delete() {}
 }
