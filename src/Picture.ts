@@ -11,4 +11,5 @@ class Picture {
   ) {}
 
   save() {}
+  read() {}
 }
