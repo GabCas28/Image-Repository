@@ -1,4 +1,6 @@
 entidad:
   - src/Picture.ts
   - src/Rating.ts
-  - src/Review.ts
+  - src/Comment.ts
+  - src/Controller.ts
+  - src/User.ts
