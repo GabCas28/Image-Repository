@@ -1,15 +1,11 @@
 class Picture {
-  id;
-  username;
-  title;
-  description;
-  constructor(
-    id,
-    username,
-    title: String = "",
-    description: String = ""
-  ) {}
-
-  save() {}
-  read() {}
+	constructor(
+		id,
+		author: User,
+		title: String,
+		description: String,
+		source: String,
+		comments: Comment[],
+		ratings: Rating[]
+	) {}
 }
