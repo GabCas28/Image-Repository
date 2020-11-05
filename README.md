@@ -104,7 +104,7 @@ The initial classes are the following:
   * Password: String
  
 * [Controller](./src/Controller.ts)
-  * - RetrievePictures: Displays all the pictures in the system
+  * - RetrievePictures: Picture List
 
   
 ## Milestones and Issues :snowflake:
