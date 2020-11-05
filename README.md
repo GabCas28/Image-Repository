@@ -2,11 +2,6 @@
 
 # Image Repository
 
-## Architecture :european_castle:
-
-Since uploading and sometimes serving pictures may take a long time, an **event driven architecture** is chosen for the project.
-This way, we avoid freezing server threads, unloading its charge. We also achieve a faster response and a smoother user experience.
-
 ## User Stories :eyes:
 
 Some different User Stories can be defined for this project using the following structure:
@@ -155,6 +150,12 @@ All the open issues are grouped inside the [project roadmap](https://github.com/
   * [As a **rater** I need to **delete my ratings** that **are no longer adequate**.](https://github.com/GabCas28/Image-Repository/issues/24)
   
   * [As an **administrator** I need to **delete ratings** to **prevent unsuitable uses***](https://github.com/GabCas28/Image-Repository/issues/32)
+
+
+## Architecture :european_castle:
+
+Since uploading and sometimes serving pictures may take a long time, an **event driven architecture** is chosen for the project.
+This way, we avoid freezing server threads, unloading its charge. We also achieve a faster response and a smoother user experience.
 
 
 ## Motivation 📖
