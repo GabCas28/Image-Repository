@@ -2,8 +2,6 @@
 
 # Image Repository
 
-_The **main** objective of the project is to allow the user to store, share and review images._
-
 ## Architecture :european_castle:
 
 Since uploading and sometimes serving pictures may take a long time, an **event driven architecture** is chosen for the project.
