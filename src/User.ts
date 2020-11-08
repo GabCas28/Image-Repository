@@ -1,3 +1,9 @@
-class User {
-	constructor(id: String, name: String, email: String, password: String) {}
+export class User {
+  name: String;
+  surname: String;
+  email: String;
+  password: String;
+
+  constructor(name: String, surname: String, email: String, password: String) {}
+
 }
