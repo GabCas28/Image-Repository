@@ -1,5 +1,7 @@
-class Controller {
-	displayPictures(): Picture[] {
-		return [];
-	}
+import { Picture } from "./Picture";
+
+export class Controller {
+  listPictures(): Picture[] {
+    return [];
+  }
 }
