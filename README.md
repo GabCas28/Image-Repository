@@ -4,8 +4,6 @@
 
 # Image Repository
 
-For better experience, [view on GitHub Pages](https://gabcas28.github.io/Image-Repository/)
-
 ## [Architecture](/doc/Architecture.md)
 
 ## [Planning](/doc/Planning.md)
