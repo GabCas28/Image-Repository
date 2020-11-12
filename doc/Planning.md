@@ -21,9 +21,25 @@ This is the main User story, that allows the uploading of pictures.
   
 [[US15]](https://github.com/GabCas28/Image-Repository/issues/30) As an **administrator** I need to **delete pictures** to **prevent unsuitable uses**
 
-## Phase 2. [Comment System](https://github.com/GabCas28/Image-Repository/milestone/5)
+## Phase 2. [Rating System](https://github.com/GabCas28/Image-Repository/milestone/6)
 
-The second phase of the project is developing the comment system for the commenters and users that interact with them.
+The second phase of the project, consists of developing the rating system, and will be build along with the second phase, since they have a similar topology.
+
+Again, the issues covered in this phase are ordered by importance:
+
+[[US5]](https://github.com/GabCas28/Image-Repository/issues/21) As a **rater** I need to **qualify pictures** in order to **support their authors**.
+
+[[US6]](https://github.com/GabCas28/Image-Repository/issues22) As a **user** I need to **view ratings of pictures** in order to **understand what people like**.
+
+[[US7]](https://github.com/GabCas28/Image-Repository/issues/23) As a **rater** I need to **modify my ratings** in order to **change my mind**.
+
+[[US8]](https://github.com/GabCas28/Image-Repository/issues/24) As a **rater** I need to **delete my ratings** that **are no longer adequate**.
+  
+[[US17]](https://github.com/GabCas28/Image-Repository/issues/32) As an **administrator** I need to **delete ratings** to **prevent unsuitable uses**
+
+## Phase 3. [Review System](https://github.com/GabCas28/Image-Repository/milestone/5)
+
+The third phase of the project is developing the review system for the reviewers and users that interact with them.
 
 The user stories covered in this phase are the following:
 
@@ -40,19 +56,3 @@ The user stories covered in this phase are the following:
 [[US14]](https://github.com/GabCas28/Image-Repository/issues/29) As a **commenter** I need to **delete my comments** that **are no longer adequate**.
   
 [[US16]](https://github.com/GabCas28/Image-Repository/issues/31) As an **administrator** I need to **delete comments** to **prevent unsuitable uses**.
-
-## Phase 3. [Rating System](https://github.com/GabCas28/Image-Repository/milestone/6)
-
-The third phase of the project, consists of developing the rating system, and will be build along with the second phase, since they have a similar topology.
-
-Again, the issues covered in this phase are ordered by importance:
-
-[[US5]](https://github.com/GabCas28/Image-Repository/issues/21) As a **rater** I need to **qualify pictures** in order to **support their authors**.
-
-[[US6]](https://github.com/GabCas28/Image-Repository/issues22) As a **user** I need to **view ratings of pictures** in order to **understand what people like**.
-
-[[US7]](https://github.com/GabCas28/Image-Repository/issues/23) As a **rater** I need to **modify my ratings** in order to **change my mind**.
-
-[[US8]](https://github.com/GabCas28/Image-Repository/issues/24) As a **rater** I need to **delete my ratings** that **are no longer adequate**.
-  
-[[US17]](https://github.com/GabCas28/Image-Repository/issues/32) As an **administrator** I need to **delete ratings** to **prevent unsuitable uses**
