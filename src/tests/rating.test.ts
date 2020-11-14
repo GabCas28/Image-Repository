@@ -3,12 +3,7 @@ import { User } from "../User";
 import { Rating } from "../Rating";
 
 describe("Unit Tests Rating.ts", function () {
-<<<<<<< HEAD
   var test_user = new User("Gabriel", "Castro", "test@gmail.com");
-=======
-  var test_user = new User("Gabriel", "Castro", "test@gmail.com", "password");
->>>>>>> Create constructor for Rating class and check its behaviour. Closes #39
-
   // Testea que se haya cargado bien la librería
   describe("Load source file: " + __dirname + "/../Rating.ts", function () {
     it("Should be loaded", function () {
