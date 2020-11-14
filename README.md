@@ -4,13 +4,9 @@
 
 # Image Repository
 
-<<<<<<< HEAD
 Silence is golden
 
 ## Tier 2
-=======
-## [Architecture](/doc/Architecture.md)
->>>>>>> Removed unnecessary link
 
 ### [Task Runner](/doc/Task-Runner.md)
 
