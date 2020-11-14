@@ -4,14 +4,30 @@
 
 # Image Repository
 
-## [Architecture](/doc/Architecture.md)
+Silence is golden
 
-## [Planning](/doc/Planning.md)
+## Tier 2
 
-## [Initial classes](/doc/Initial-classes.md)
+### [Task Runner](/doc/Task-Runner.md)
 
-## [Motivation](/doc/Motivation.md)
+### [Assertion Library](/doc/Assertion-Library.md)
 
-## [Set Up](/doc/Initial-Set-Up.md)
+### [Test-Framework](/doc/Test-Framework.md)
+
+## Tier 1
+
+### [Architecture](/doc/Architecture.md)
+
+### [Planning](/doc/Planning.md)
+
+### [Initial classes](/doc/Initial-classes.md)
+
+## Tier 0
+
+### [Motivation](/doc/Motivation.md)
+
+### [Set Up](/doc/Initial-Set-Up.md)
+
+## License
 
 This project is under the [GPL-3.0 License](LICENSE.md).
