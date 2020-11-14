@@ -3,7 +3,7 @@ import { User } from "../User";
 import { Review } from "../Review";
 
 describe("Unit Tests Review.ts", function () {
-  var test_user = new User("Gabriel", "Castro", "test@gmail.com", "password");
+  var test_user = new User("Gabriel", "Castro", "test@gmail.com");
 
   // Testea que se haya cargado bien la librería
   describe("Load source file: " + __dirname + "/../Review.ts", function () {

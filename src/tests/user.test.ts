@@ -14,8 +14,7 @@ describe("Unit Tests User.ts", function () {
       var new_user = new User(
         "Gabriel",
         "Castro",
-        "g@gmail.com",
-        "passwordTest"
+        "g@gmail.com"
       );
       assert.equal(new_user.toString(), "Gabriel Castro - g@gmail.com");
     });
