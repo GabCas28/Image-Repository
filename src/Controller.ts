@@ -2,6 +2,7 @@ import { Picture } from "./Picture";
 
 export class Controller {
   private pictureList: Picture[];
+  
   constructor() {
     this.pictureList = [];
   }
@@ -15,20 +16,22 @@ export class Controller {
   }
 
   addPicture(picture: Picture): boolean {
-    if (this.canBeAdded(picture)) {
-      this.pictureList.push(picture);
-      return true;
-    }
-    return false;
+    return this.canBeAdded(picture)
+      ? this.pictureList.push(picture)
+        ? true
+        : false
+      : false;
   }
 
   canBeAdded(picture: Picture): boolean {
-    let result: boolean;
-    result = picture.isValid()
-      ? this.pictureList.includes(picture)
-        ? false
-        : true
-      : false;
-    return result;
+    let conditions: boolean[] = [
+      picture.isValid(),
+      this.isNotDuplicate(picture),
+    ];
+    return !conditions.includes(false);
+  }
+
+  isNotDuplicate(picture: Picture): boolean {
+    return !this.pictureList.includes(picture);
   }
 }
