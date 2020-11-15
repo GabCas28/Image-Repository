@@ -27,13 +27,13 @@ export class Picture {
   get [Symbol.toStringTag]() {
     return "Picture";
   }
-  isValid(): boolean {
+  public isValid(): boolean {
     return this.hasSource();
   }
-  hasSource(): boolean {
+  private hasSource(): boolean {
     return this.source ? true : false;
   }
-  toString() {
+  public toString() {
     return `${this.author}:\n${this.title}\n${this.description.slice(
       0,
       80
