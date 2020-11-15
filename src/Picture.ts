@@ -23,6 +23,16 @@ export class Picture {
     this.reviews = [];
     this.ratings = [];
   }
+
+  get [Symbol.toStringTag]() {
+    return "Picture";
+  }
+  isValid(): boolean {
+    return this.hasSource();
+  }
+  hasSource(): boolean {
+    return this.source ? true : false;
+  }
   toString() {
     return `${this.author}:\n${this.title}\n${this.description.slice(
       0,

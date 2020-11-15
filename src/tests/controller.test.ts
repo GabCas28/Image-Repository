@@ -24,6 +24,8 @@ describe("Unit Tests Controller.ts", function () {
     var source = "Example/picture";
     var new_user = new User("Gabriel", "Castro", "test@gmail.com");
     var new_picture = new Picture(new_user, title, description, source);
+    var no_source_picture = new Picture(new_user, title, description, "");
+
     it("Should add a new Picture", function () {
       var new_controller = new Controller();
       assert.ok(
@@ -31,6 +33,7 @@ describe("Unit Tests Controller.ts", function () {
         "Picture added correctly"
       );
     });
+
     it("Should return true when added correctly", function () {
       var new_controller = new Controller();
       assert.isTrue(
@@ -38,13 +41,19 @@ describe("Unit Tests Controller.ts", function () {
         "Returned true after adding"
       );
     });
-    it("Should return false with a sourceless Picture", function () {
+
+    it("Should return false for a Picture with no source", function () {
       var new_controller = new Controller();
-      var sourceless_picture = new Picture(new_user, title, description, "");
       assert.isFalse(
-        new_controller.addPicture(sourceless_picture),
+        new_controller.addPicture(no_source_picture),
         "Returned false with empty source"
       );
+    });
+
+    it("Should not add Pictures with no source", function () {
+      var new_controller = new Controller();
+      new_controller.addPicture(no_source_picture),
+        assert.equal(new_controller.getPictureList().length, 0);
     });
 
     it("Should increase picture list size", function () {
@@ -53,13 +62,19 @@ describe("Unit Tests Controller.ts", function () {
       assert.equal(new_controller.getPictureList().length, 1);
     });
 
+    it("Shouldn't add the same Picture twice", function () {
+      var new_controller = new Controller();
+      new_controller.addPicture(new_picture);
+      assert.equal(new_controller.getPictureList().length, 1);
+      new_controller.addPicture(new_picture);
+      assert.equal(new_controller.getPictureList().length, 1);
+    });
 
-    it("Same picture shouldn't be added twice", function () {
-        var new_controller = new Controller();
-        new_controller.addPicture(new_picture);
-        assert.equal(new_controller.getPictureList().length, 1);
-        new_controller.addPicture(new_picture);
-        assert.equal(new_controller.getPictureList().length, 1);
-      });
+    it("Should return false when Picture is already added", function () {
+      var new_controller = new Controller();
+      new_controller.addPicture(new_picture);
+      assert.equal(new_controller.getPictureList().length, 1);
+      assert.isFalse(new_controller.addPicture(new_picture));
+    });
   });
 });
