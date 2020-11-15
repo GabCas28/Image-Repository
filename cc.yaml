@@ -4,3 +4,6 @@ entidad:
   - src/Review.ts
   - src/Controller.ts
   - src/User.ts
+lenguaje: typescript
+test: src/tests/*.test.ts
+fichero_tareas: src/package.json
