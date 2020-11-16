@@ -3,12 +3,12 @@ import { Review } from "./Review";
 import { Rating } from "./Rating";
 
 export class Picture {
-  author: User;
-  title: String;
-  description: String;
-  source: String;
-  reviews: Review[];
-  ratings: Rating[];
+  private author: User;
+  private title: String;
+  private description: String;
+  private source: String;
+  private reviews: Review[];
+  private ratings: Rating[];
 
   constructor(
     author: User,

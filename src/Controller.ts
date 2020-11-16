@@ -1,43 +1,46 @@
 import { Picture } from "./Picture";
 
 export class Controller {
-  private pictureList: Picture[];
+  private pictures: Picture[];
 
   get [Symbol.toStringTag]() {
     return "Controller";
   }
   constructor() {
-    this.pictureList = [];
+    this.pictures = [];
+  }
+
+  public getPictures(): Picture[] {
+    return [...this.pictures];
+  }
+
+  public getPictureBySource(): Picture[] {
+    return [...this.pictures];
   }
 
   public addPicture(picture: Picture): boolean {
     return this.canBeAdded(picture)
-      ? this.setPictureList(this.augmentedPictureList(picture))
+      ? this.setPictures(this.augmentedPictureList(picture))
       : false;
   }
 
   public deletePicture(picture: Picture): boolean {
     return this.canBeDeleted(picture)
-      ? this.setPictureList(this.filteredPictureList(picture))
+      ? this.setPictures(this.filteredPictureList(picture))
       : false;
   }
 
-  public getPictureList(): Picture[] {
-    return this.pictureList;
-  }
-
-  private setPictureList(pictureList: Picture[]): boolean {
-    this.pictureList = pictureList;
+  private setPictures(pictureList: Picture[]): boolean {
+    this.pictures = pictureList;
     return true;
   }
 
-
   private augmentedPictureList(picture: Picture): Picture[] {
-    return [picture, ...this.pictureList];
+    return [picture, ...this.getPictures()];
   }
 
   private filteredPictureList(picture: Picture): Picture[] {
-    return this.pictureList.filter((elem) => elem !== picture);
+    return this.getPictures().filter((elem) => elem !== picture);
   }
 
   private canBeAdded(picture: Picture): boolean {
@@ -49,6 +52,6 @@ export class Controller {
   }
 
   private isDuplicate(picture: Picture): boolean {
-    return this.pictureList.includes(picture);
+    return this.getPictures().includes(picture);
   }
 }

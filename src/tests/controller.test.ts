@@ -1,12 +1,24 @@
 import { assert, expect } from "chai";
+import { listenerCount } from "process";
 import { Controller } from "../Controller";
 import { Picture } from "../Picture";
 import { User } from "../User";
 
 describe("Unit Tests Controller.ts", function () {
+  var title = "Picture 1";
+  var title2 = "Picture 2";
+  var description = "Test Picture 1";
+  var description2 = "Test Picture 2";
+  var source = "Example/picture";
+  var source2 = "Example/picture2";
+  var new_user = new User("Gabriel", "Castro", "test@gmail.com");
+  var new_picture = new Picture(new_user, title, description, source);
+  var new_picture2 = new Picture(new_user, title2, description2, source2);
+  var no_source_picture = new Picture(new_user, title, description, "");
+
   describe("Load source file: " + __dirname + "/../Controller.ts", function () {
     it("Should be loaded", function () {
-      assert.ok(Controller, "Loaded");
+      assert.ok(Controller, "Not loaded");
     });
   });
 
@@ -18,18 +30,11 @@ describe("Unit Tests Controller.ts", function () {
   });
 
   describe("Controller addPicture", function () {
-    var title = "Picture 1";
-    var description = "Test Picture 1";
-    var source = "Example/picture";
-    var new_user = new User("Gabriel", "Castro", "test@gmail.com");
-    var new_picture = new Picture(new_user, title, description, source);
-    var no_source_picture = new Picture(new_user, title, description, "");
-
     it("Should be callable", function () {
       var new_controller = new Controller();
       assert.ok(
         new_controller.addPicture(new_picture),
-        "addPicture called correctly"
+        "addPicture not called"
       );
     });
 
@@ -37,7 +42,7 @@ describe("Unit Tests Controller.ts", function () {
       var new_controller = new Controller();
       assert.isFalse(
         new_controller.addPicture(no_source_picture),
-        "Returned false with empty source"
+        "Didn't return false with empty source"
       );
     });
 
@@ -45,31 +50,31 @@ describe("Unit Tests Controller.ts", function () {
       var new_controller = new Controller();
       new_controller.addPicture(no_source_picture),
         assert.equal(
-          new_controller.getPictureList().length,
+          new_controller.getPictures().length,
           0,
-          "The picture with no source is not added"
+          "The picture with no source is added"
         );
     });
 
     it("Should not add the same Picture twice", function () {
       var new_controller = new Controller();
       new_controller.addPicture(new_picture);
-      assert.equal(new_controller.getPictureList().length, 1);
+      assert.equal(new_controller.getPictures().length, 1);
       new_controller.addPicture(new_picture);
       assert.equal(
-        new_controller.getPictureList().length,
+        new_controller.getPictures().length,
         1,
-        "The picture wasn't added twice"
+        "The picture was added twice"
       );
     });
 
     it("Should return false when Picture is already added", function () {
       var new_controller = new Controller();
       new_controller.addPicture(new_picture);
-      assert.equal(new_controller.getPictureList().length, 1);
+      assert.equal(new_controller.getPictures().length, 1);
       assert.isFalse(
         new_controller.addPicture(new_picture),
-        "The function returned false"
+        "The function didn't return false"
       );
     });
 
@@ -77,7 +82,7 @@ describe("Unit Tests Controller.ts", function () {
       var new_controller = new Controller();
       assert.isTrue(
         new_controller.addPicture(new_picture),
-        "Returned true after adding"
+        "Didn't return true after adding"
       );
     });
 
@@ -85,9 +90,9 @@ describe("Unit Tests Controller.ts", function () {
       var new_controller = new Controller();
       new_controller.addPicture(new_picture);
       assert.equal(
-        new_controller.getPictureList().length,
+        new_controller.getPictures().length,
         1,
-        "The list size is increased by one"
+        "The list size is not increased by one"
       );
     });
 
@@ -95,28 +100,20 @@ describe("Unit Tests Controller.ts", function () {
       var new_controller = new Controller();
       new_controller.addPicture(new_picture);
       assert.isTrue(
-        new_controller.getPictureList().includes(new_picture),
-        "The picture is included in the list"
+        new_controller.getPictures().includes(new_picture),
+        "The picture is not included in the list"
       );
     });
   });
 
   describe("Controller deletePicture", function () {
-    var title = "Picture 1";
-    var title2 = "Picture 2";
-    var description = "Test Picture 1";
-    var description2 = "Test Picture 2";
-    var source = "Example/picture";
-    var source2 = "Example/picture2";
-    var new_user = new User("Gabriel", "Castro", "test@gmail.com");
-    var new_picture = new Picture(new_user, title, description, source);
-    var new_picture2 = new Picture(new_user, title2, description2, source2);
-    var no_source_picture = new Picture(new_user, title, description, "");
-
     it("Should be callable", function () {
       var new_controller = new Controller();
       new_controller.addPicture(new_picture);
-      assert.ok(new_controller.deletePicture(new_picture), "Function called");
+      assert.ok(
+        new_controller.deletePicture(new_picture),
+        "Function not called"
+      );
     });
 
     it("Should return true if successful", function () {
@@ -124,14 +121,14 @@ describe("Unit Tests Controller.ts", function () {
       new_controller.addPicture(new_picture);
       assert.isTrue(
         new_controller.deletePicture(new_picture),
-        "Function returns true when successful"
+        "Function doesn't return true when successful"
       );
     });
     it("Should return false if Picture not found", function () {
       var new_controller = new Controller();
       assert.isFalse(
         new_controller.deletePicture(new_picture),
-        "Function returns false when unsuccessful"
+        "Function doesn't return false when unsuccessful"
       );
     });
     it("Add one picture and delete it. Size should be zero", function () {
@@ -139,9 +136,9 @@ describe("Unit Tests Controller.ts", function () {
       new_controller.addPicture(new_picture);
       new_controller.deletePicture(new_picture);
       assert.equal(
-        new_controller.getPictureList().length,
+        new_controller.getPictures().length,
         0,
-        "Function reduces list size to zero"
+        "Function doesn't reduce list size to zero"
       );
     });
     it("Add two pictures and delete one. Size should be one", function () {
@@ -150,10 +147,67 @@ describe("Unit Tests Controller.ts", function () {
       new_controller.addPicture(new_picture2);
       new_controller.deletePicture(new_picture);
       assert.equal(
-        new_controller.getPictureList().length,
+        new_controller.getPictures().length,
         1,
-        "Function reduces list size to one"
+        "Function does not reduce list size to one"
       );
     });
+  });
+
+  describe("Controller getPictures", function () {
+    var new_picture = new Picture(new_user, title, description, source);
+    it("With no pictures, should list an empty list", function () {
+      var new_controller = new Controller();
+      assert.deepEqual(
+        new_controller.getPictures(),
+        [],
+        "No Empty list returned"
+      );
+    });
+
+    it("With one picture, should return a list with that picture", function () {
+      var new_controller = new Controller();
+      new_controller.addPicture(new_picture);
+      assert.deepEqual(
+        new_controller.getPictures(),
+        [new_picture],
+        "No list with single element returned"
+      );
+    });
+
+    it("With two pictures, should return a list with both pictures", function () {
+      var new_controller = new Controller();
+      new_controller.addPicture(new_picture);
+      new_controller.addPicture(new_picture2);
+      assert.deepEqual(
+        new_controller.getPictures(),
+        [new_picture2, new_picture],
+        "No list with both elements returned"
+      );
+    });
+
+    it("Adding two pictures, and removing the first should return a list with the second picture", function () {
+      var new_controller = new Controller();
+      new_controller.addPicture(new_picture);
+      new_controller.addPicture(new_picture2);
+      new_controller.deletePicture(new_picture);
+      assert.deepEqual(
+        new_controller.getPictures(),
+        [new_picture2],
+        "No list with both elements returned"
+      );
+    });
+    it("Adding two pictures, and removing them return a empty list", function () {
+        var new_controller = new Controller();
+        new_controller.addPicture(new_picture);
+        new_controller.addPicture(new_picture2);
+        new_controller.deletePicture(new_picture);
+        new_controller.deletePicture(new_picture2);
+        assert.deepEqual(
+          new_controller.getPictures(),
+          [],
+          "No list with both elements returned"
+        );
+      });
   });
 });
