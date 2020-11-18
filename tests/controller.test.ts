@@ -1,8 +1,7 @@
 import { assert, expect } from "chai";
-import { listenerCount } from "process";
-import { Controller } from "../Controller";
-import { Picture } from "../Picture";
-import { User } from "../User";
+import { Controller } from "../src/Controller";
+import { Picture } from "../src/Picture";
+import { User } from "../src/User";
 
 describe("Unit Tests Controller.ts", function () {
   var title = "Picture 1";
@@ -16,7 +15,7 @@ describe("Unit Tests Controller.ts", function () {
   var new_picture2 = new Picture(new_user, title2, description2, source2);
   var no_source_picture = new Picture(new_user, title, description, "");
 
-  describe("Load source file: " + __dirname + "/../Controller.ts", function () {
+  describe("Load source file: " + __dirname + "/../src/Controller.ts", function () {
     it("Should be loaded", function () {
       assert.ok(Controller, "Not loaded");
     });

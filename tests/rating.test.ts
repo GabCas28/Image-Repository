@@ -1,11 +1,11 @@
 import { assert } from "chai";
-import { User } from "../User";
-import { Rating } from "../Rating";
+import { User } from "../src/User";
+import { Rating } from "../src/Rating";
 
 describe("Unit Tests Rating.ts", function () {
   var test_user = new User("Gabriel", "Castro", "test@gmail.com");
   // Testea que se haya cargado bien la librería
-  describe("Load source file: " + __dirname + "/../Rating.ts", function () {
+  describe("Load source file: " + __dirname + "/../src/Rating.ts", function () {
     it("Should be loaded", function () {
       assert.ok(Rating, "Loaded");
     });

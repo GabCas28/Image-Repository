@@ -1,6 +1,6 @@
 import { assert, expect } from "chai";
-import { User } from "../User";
-import { Picture } from "../Picture";
+import { User } from "../src/User";
+import { Picture } from "../src/Picture";
 
 describe("Unit Tests Picture.ts", function () {
   var test_user = new User("Gabriel", "Castro", "test@gmail.com");
@@ -8,7 +8,7 @@ describe("Unit Tests Picture.ts", function () {
   var description = "Test Description for test picture 1";
   var source = "/example/picture.png";
 
-  describe("Load source file: " + __dirname + "/../Picture.ts", function () {
+  describe("Load source file: " + __dirname + "/../src/Picture.ts", function () {
     it("Should be loaded", function () {
       assert.ok(Picture, "Loaded");
     });
