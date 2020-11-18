@@ -3,7 +3,7 @@ import { User } from "../src/User";
 
 describe("Unit Tests User.ts", function () {
   // Testea que se haya cargado bien la librería
-  describe("Load source file: " + __dirname + "/../src/User.ts", function () {
+  describe(`Load source file: ${__dirname}/../src/User.ts`, function () {
     it("Should be loaded", function () {
       assert.ok(User, "Loaded");
     });

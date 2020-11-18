@@ -1,3 +1,4 @@
+import { Id } from "./Id";
 import { Picture } from "./Picture";
 
 export class Controller {
@@ -14,8 +15,8 @@ export class Controller {
     return [...this.pictures];
   }
 
-  public getPictureBySource(): Picture[] {
-    return [...this.pictures];
+  public updatePicture(picture: Picture): boolean {
+    return true;
   }
 
   public addPicture(picture: Picture): boolean {
@@ -52,6 +53,14 @@ export class Controller {
   }
 
   private isDuplicate(picture: Picture): boolean {
-    return this.getPictures().includes(picture);
+    return this.getById(picture.getId()).length > 0;
+  }
+
+  public getById(id: Id): Picture[] {
+    return this.getPictures().filter((e) => this.eqId(e.getId(), id));
+  }
+
+  private eqId(e1: Id, e2: Id) {
+    return e1 === e2;
   }
 }
