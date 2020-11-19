@@ -4,6 +4,13 @@ entidad:
   - src/Review.ts
   - src/Controller.ts
   - src/User.ts
+  - src/Id.ts
 lenguaje: typescript
-test: tests/*.test.ts
+test: 
+  - tests/controller.test.ts
+  - tests/id.test.ts
+  - tests/picture.test.ts
+  - tests/rating.test.ts
+  - tests/review.test.ts
+  - tests/user.test.ts
 fichero_tareas: package.json
