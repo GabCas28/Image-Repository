@@ -33,35 +33,37 @@ describe("Unit Tests Controller.ts", function () {
   describe("Controller addPicture", function () {
     it("Should be callable", function () {
       let new_controller = new Controller();
-      assert.ok(
-        new_controller.addPicture(new_picture),
-        "addPicture not called"
-      );
+      assert.doesNotThrow(() => new_controller.addPicture(new_picture), Error);
     });
 
-    it("Should return false for a Picture with no source", function () {
+    it("Should throw error for a Picture with no source", function () {
       let new_controller = new Controller();
-      assert.isFalse(
-        new_controller.addPicture(no_source_picture),
-        "Didn't return false with empty source"
+      assert.throw(
+        () => new_controller.addPicture(no_source_picture),
+        Error,
+        "Picture can't be added"
       );
     });
 
     it("Should not add Pictures with no source", function () {
       let new_controller = new Controller();
-      new_controller.addPicture(no_source_picture),
-        assert.equal(
-          new_controller.getPictures().length,
-          0,
-          "The picture with no source is added"
-        );
+      try {
+        new_controller.addPicture(no_source_picture);
+      } catch {}
+      assert.equal(
+        new_controller.getPictures().length,
+        0,
+        "The picture with no source is added"
+      );
     });
 
     it("Should not add the same Picture twice", function () {
       let new_controller = new Controller();
-      new_controller.addPicture(new_picture);
-      assert.equal(new_controller.getPictures().length, 1);
-      new_controller.addPicture(new_picture);
+      try {
+        new_controller.addPicture(new_picture);
+        assert.equal(new_controller.getPictures().length, 1);
+        new_controller.addPicture(new_picture);
+      } catch {}
       assert.equal(
         new_controller.getPictures().length,
         1,
@@ -69,21 +71,14 @@ describe("Unit Tests Controller.ts", function () {
       );
     });
 
-    it("Should return false when Picture is already added", function () {
+    it("Should throw error when Picture is already added", function () {
       let new_controller = new Controller();
       new_controller.addPicture(new_picture);
       assert.equal(new_controller.getPictures().length, 1);
-      assert.isFalse(
-        new_controller.addPicture(new_picture),
-        "The function didn't return false"
-      );
-    });
-
-    it("Should return true when added correctly", function () {
-      let new_controller = new Controller();
-      assert.isTrue(
-        new_controller.addPicture(new_picture),
-        "Didn't return true after adding"
+      assert.throw(
+        () => new_controller.addPicture(new_picture),
+        Error,
+        "Picture can't be added"
       );
     });
 
@@ -119,30 +114,24 @@ describe("Unit Tests Controller.ts", function () {
   });
 
   describe("Controller deletePicture", function () {
-    it("Should be callable", function () {
+    it("Should return nothing if successful", function () {
       let new_controller = new Controller();
       new_controller.addPicture(new_picture);
-      assert.ok(
-        new_controller.deletePicture(new_picture),
-        "Function not called"
+      assert.doesNotThrow(
+        () => new_controller.deletePicture(new_picture),
+        Error
       );
     });
 
-    it("Should return true if successful", function () {
+    it("Should throw error if Picture not found", function () {
       let new_controller = new Controller();
-      new_controller.addPicture(new_picture);
-      assert.isTrue(
-        new_controller.deletePicture(new_picture),
-        "Function doesn't return true when successful"
+      assert.throw(
+        () => new_controller.deletePicture(new_picture),
+        Error,
+        "Picture not found"
       );
     });
-    it("Should return false if Picture not found", function () {
-      let new_controller = new Controller();
-      assert.isFalse(
-        new_controller.deletePicture(new_picture),
-        "Function doesn't return false when unsuccessful"
-      );
-    });
+
     it("Add one picture and delete it. Size should be zero", function () {
       let new_controller = new Controller();
       new_controller.addPicture(new_picture);

@@ -15,20 +15,20 @@ export class Controller {
     return [...this.pictures];
   }
 
-  public updatePicture(picture: Picture): boolean {
-    return true;
+  public updatePicture(picture: Picture): void {}
+
+  public addPicture(picture: Picture): void {
+    if (!this.canBeAdded(picture)) {
+      throw new Error("Picture can't be added");
+    }
+    this.setPictures(this.augmentedPictureList(picture));
   }
 
-  public addPicture(picture: Picture): boolean {
-    return this.canBeAdded(picture)
-      ? this.setPictures(this.augmentedPictureList(picture))
-      : false;
-  }
-
-  public deletePicture(picture: Picture): boolean {
-    return this.canBeDeleted(picture)
-      ? this.setPictures(this.filteredPictureList(picture))
-      : false;
+  public deletePicture(picture: Picture): void {
+    if (!this.canBeDeleted(picture)) {
+      throw new Error("Picture not found");
+    }
+    this.setPictures(this.filteredPictureList(picture));
   }
 
   private setPictures(pictureList: Picture[]): boolean {
