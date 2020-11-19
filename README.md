@@ -4,7 +4,25 @@
 
 # Image Repository
 
-Silence is golden
+## Getting all required modules
+
+Navigate inside the root folder. Required modules should be installed with:
+
+    npm install
+
+## Running all the tests
+
+Inside the root folder and with modules installed. In order to run all the tests, use:
+
+    npm test
+
+## Preparing the code for deployment
+
+In order to build the javascript files from the typescript code:
+
+    npm build
+
+# Information Index
 
 ## Tier 2
 
