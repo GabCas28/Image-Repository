@@ -31,7 +31,7 @@ export class Picture {
   get [Symbol.toStringTag]() {
     return "Picture";
   }
-  
+
   public isValid(): boolean {
     return this.hasSource();
   }
@@ -43,7 +43,10 @@ export class Picture {
   private hasSource(): boolean {
     return this.source ? true : false;
   }
-  
+
+  public getSource(): string {
+    return this.source.toString();
+  }
   public toString() {
     return `${this.author}:\n${this.title}\n${this.description.slice(
       0,

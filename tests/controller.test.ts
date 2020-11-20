@@ -1,4 +1,5 @@
 import { assert, expect } from "chai";
+import { readFile } from "fs";
 import { Controller } from "../src/Controller";
 import { Id } from "../src/Id";
 import { Picture } from "../src/Picture";
@@ -9,8 +10,8 @@ describe("Unit Tests Controller.ts", function () {
   let title2 = "Picture 2";
   let description = "Test Picture 1";
   let description2 = "Test Picture 2";
-  let source = "Example/picture";
-  let source2 = "Example/picture2";
+  let source = "assets/example/picture.png";
+  let source2 = "assets/example22/picture2.png";
   let new_user = new User("Gabriel", "Castro", "test@gmail.com");
   let id = new Id();
   let id2 = new Id();
@@ -227,6 +228,19 @@ describe("Unit Tests Controller.ts", function () {
         [],
         "No empty list returned"
       );
+    });
+  });
+  describe(`Load sample picture`, function () {
+    it("Should be uploaded", function () {
+      let new_controller = new Controller();
+      readFile("./tests/sample_pic.png", (err, data) => {
+        if (err) throw err;
+
+        assert.doesNotThrow(
+          () => new_controller.uploadPicture(new_picture, data),
+          Error
+        );
+      });
     });
   });
 });

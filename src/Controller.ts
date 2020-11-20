@@ -1,3 +1,4 @@
+import { writeFile } from "fs";
 import { Id } from "./Id";
 import { Picture } from "./Picture";
 
@@ -9,6 +10,12 @@ export class Controller {
   }
   constructor() {
     this.pictures = [];
+  }
+  public uploadPicture(picture: Picture, data: Buffer): void {
+    writeFile(picture.getSource(), data, this.handleError);
+  }
+  private handleError(err: any) {
+    if (err) throw err;
   }
 
   public getPictures(): Picture[] {
@@ -59,7 +66,6 @@ export class Controller {
   public getById(id: Id): Picture[] {
     return this.getPictures().filter((e) => this.eqId(e.getId(), id));
   }
-
   private eqId(e1: Id, e2: Id) {
     return e1 === e2;
   }
