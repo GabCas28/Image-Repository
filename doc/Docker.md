@@ -22,7 +22,9 @@ Then you can create a new repository, and link its automated builds to our Githu
 
 The generated Dockerfile for the application is the following: [Dockerfile](../Dockerfile).
 
-I tried node image first, and it turned out to be a bit heavy for this project. Then I switched to node:14-alpine. It includes node and npm and it's built on Alpine linux. I used 14 instead of current because it was giving an error.
+I tried node image first, and it turned out to be a bit heavy for this project. Then I switched to node:14-alpine. It includes node and npm and it's built on Alpine linux. I used 14 instead of current because it was giving an error. The size comparison of these images is notable and can be seen in the following caption.
+
+![Image comparison](./img/Image-size-comparison.png)
 
 As they define it in their website:
 
