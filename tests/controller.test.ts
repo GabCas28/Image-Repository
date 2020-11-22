@@ -233,7 +233,7 @@ describe("Unit Tests Controller.ts", function () {
   describe(`Load sample picture`, function () {
     it("Should be uploaded", function () {
       let new_controller = new Controller();
-      readFile("./tests/sample_pic.png", (err, data) => {
+      readFile(`${__dirname}/sample_pic.png`, (err, data) => {
         if (err) throw err;
 
         assert.doesNotThrow(

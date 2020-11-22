@@ -4,11 +4,11 @@ To understand more about Docker Hub repositories, these instructions might be us
 
 By linking the repository to a Github repository, we ask Docker Hub to collect these images and save them. This way we can access them and all the different versions we created.
 
-To create Docker images, we use Dockerfiles. These files contain instructions for building and setting the container up. For example, selecting the OS to use, which is the first command to add. Apart from an OS, the test container should have Node installed. It also should have all the program dependencies.
+To create Docker images, we use Dockerfile. These files contain instructions for building and setting the container up. For example, selecting the OS to use, which is the first command to add. Apart from an OS, the test container should have Node installed. It also should have all the program dependencies.
 
 Yet, the size of the container should be the smallest possible. This way it is easier to download, build and run. It will use less of the computer resources when running and will be more shareable across environments. For these reasons, in this exercise we will generate and compare different containers.
 
-The final goal is to make an image for testing. We also want to assure that the tests are running in the same environment as our application [[2]](#references). That’s why we create one image based on the application’s container. Instead of creating a completely different image for testing.
+The final goal is to make an image for testing. We could also want to assure that the tests are running in the same environment as our application [[2]](#references). That’s why we could create one image based on the application’s container. 
 
 ## Docker Hub connection
 
@@ -20,19 +20,23 @@ Then you can create a new repository, and link its automated builds to our Githu
 
 ## Try different containers
 
-First we need an image that holds all the application files in it. It also runs all the necessary commands for it to work.
+The generated Dockerfile for the application is the following: [Dockerfile](../Dockerfile).
 
-Then, another image is set using the first one as a base. It will copy the tests files and install the required libraries to run them. Also sets the commands for it to run.
-
-The generated Dockerfile for the application is the following: [Dockerfile](../Dockerfile). 
-
-I tried node image first, and it turned out to be a bit heavy for this project. Then I switched to node-alpine. It includes node and npm and it's built on Alpine linux.
+I tried node image first, and it turned out to be a bit heavy for this project. Then I switched to node:14-alpine. It includes node and npm and it's built on Alpine linux. I used 14 instead of current because it was giving an error.
 
 As they define it in their website:
 
 >Alpine Linux is a security-oriented, lightweight Linux distribution based on musl libc and busybox.
 
-This distribution is specially useful for the Docker containers since makes them way smaller (around 5MB).
+This distribution is specially useful for the Docker containers since makes them way smaller.
+
+## Running the image
+
+When the image is ready, we run it adding the tests volume into the correct directory.
+
+    sudo docker run --rm -tv `pwd`:/usr/image-repository/tests/  gabcas28/image-repo/tests
+
+This way we can modify the tests without rebuilding the entire image. The source code it's inside the container at the moment.
 
 ## References
 

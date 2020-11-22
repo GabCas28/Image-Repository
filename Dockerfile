@@ -1,9 +1,13 @@
-FROM node:current-alpine
+FROM node:14-alpine
 
 WORKDIR /usr/image-repository/
-COPY *.json cc.yaml LICENSE ./
+COPY package.json cc.yaml LICENSE ./
 COPY src ./src/
+COPY assets ./assets/
 
-RUN npm install
+ENV NODE_ENV dev
 
-CMD ["npm","start"]
+RUN npm install .\
+    npm install -g mocha
+    
+CMD ["npm","test"]
