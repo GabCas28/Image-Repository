@@ -22,7 +22,11 @@ In order to build the javascript files from the typescript code:
 
     npm build
 
-# Information Index
+# Document Index
+
+## Tier 3
+
+### [Docker containers](/doc/Docker.md)
 
 ## Tier 2
 
