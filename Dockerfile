@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:14-alpine
 
 WORKDIR /usr/image-repository/
 COPY package.json cc.yaml LICENSE ./
