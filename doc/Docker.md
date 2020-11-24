@@ -74,7 +74,7 @@ We reduce the layers to one by:
 ```
 COPY . ./
 ```
-Using the `.dockerignore` as if follows:
+Using the `.dockerignore` as it follows:
 ```
 node_modules
 npm-debug.log
