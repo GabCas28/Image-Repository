@@ -11,9 +11,15 @@ export class Controller {
   constructor() {
     this.pictures = [];
   }
+
+  public getById(id: Id): Picture[] {
+    return this.getPictures().filter((e) => this.eqId(e.getId(), id));
+  }
+
   public uploadPicture(picture: Picture, data: Buffer): void {
     writeFile(picture.getSource(), data, this.handleError);
   }
+  
   private handleError(err: any) {
     if (err) throw err;
   }
@@ -35,7 +41,7 @@ export class Controller {
     if (!this.canBeDeleted(picture)) {
       throw new Error("Picture not found");
     }
-    this.setPictures(this.filteredPictureList(picture));
+    this.setPictures(this.getFilteredPictureList(picture));
   }
 
   private setPictures(pictureList: Picture[]): boolean {
@@ -47,7 +53,7 @@ export class Controller {
     return [picture, ...this.getPictures()];
   }
 
-  private filteredPictureList(picture: Picture): Picture[] {
+  private getFilteredPictureList(picture: Picture): Picture[] {
     return this.getPictures().filter((elem) => elem !== picture);
   }
 
@@ -63,9 +69,6 @@ export class Controller {
     return this.getById(picture.getId()).length > 0;
   }
 
-  public getById(id: Id): Picture[] {
-    return this.getPictures().filter((e) => this.eqId(e.getId(), id));
-  }
   private eqId(e1: Id, e2: Id) {
     return e1 === e2;
   }

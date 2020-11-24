@@ -8,7 +8,9 @@ To create Docker images, we use Dockerfile. These files contain instructions for
 
 Yet, the size of the container should be the smallest possible. This way it is easier to download, build and run. It will use less of the computer resources when running and will be more shareable across environments. For these reasons, in this exercise we will generate and compare different containers.
 
-The final goal is to make an image for testing. We could also want to assure that the tests are running in the same environment as our application [[2]](#references). That’s why we could create one image based on the application’s container. 
+The final goal is to make a container for testing. We could also want to assure that the tests are running in the same environment as our application [[2]](#references). That’s why we could create one image based on the application’s container.
+
+But, since there is no code for production yet, we'll only do the test container.
 
 ## Docker Hub connection
 
@@ -40,6 +42,47 @@ When the image is ready, we run it adding the tests volume into the correct dire
 
 This way we can modify the tests without rebuilding the entire image. The source code it's inside the container at the moment.
 
+## Optimize the container
+
+Some commands like COPY, RUN, ADD, increase the layers of the containers. For this reason, it's a good practice to minimize them. Thee following Dockerfile, uses two COPY instructions when they could be reduced to one. The Run command is already optimized, as it runs everything in one single instruction, with multiple parts.
+
+
+```
+FROM node:14-alpine
+
+WORKDIR /usr/image-repository/
+COPY package.json cc.yaml LICENSE ./
+COPY src ./src/
+
+ENV NODE_ENV dev
+
+RUN npm install .\
+    npm install -g mocha
+
+CMD ["npm","test"]
+```
+
+To optimize the COPY instruction, we can make use of the `.dockerignore` file. We can tell the Dockerfile to everything in the actual folder, while using the `.dockerignore` to omit all the unnecessary files.
+
+So instead of having:
+```
+COPY package.json cc.yaml LICENSE ./
+COPY src ./src/
+```
+We reduce the layers to one by:
+
+```
+COPY . ./
+```
+Using the `.dockerignore` as if follows:
+```
+node_modules
+npm-debug.log
+tests
+doc
+package-lock.json
+README.md
+```
 ## References
 
 [1] Docker. (2020). Repositories. https://docs.docker.com/docker-hub/repos/
