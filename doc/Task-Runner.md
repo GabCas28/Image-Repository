@@ -1,6 +1,6 @@
 # Task runner configuration
 
-After researching and reading useful documentation [[1]](#References), I have chosen to use npm CLI as task manager due to its simplicity. Specially useful now, given the struggling to pass the course.
+After researching and reading useful documentation [[1]](https://survivejs.com/webpack/appendices/comparison/), I have chosen to use npm CLI as task manager due to its simplicity. Specially useful now, given the struggling to pass the course.
 
 ## Running all the tests
 
@@ -25,4 +25,4 @@ In order to build the javascript files from the typescript code, using `npm buil
 
 ## References
 
-[[1]](#1) SurviveJS. Comparison of build tools. Retrieved from https://survivejs.com/webpack/appendices/comparison/
+[1] SurviveJS. Comparison of build tools. Retrieved from https://survivejs.com/webpack/appendices/comparison/

@@ -2,7 +2,7 @@
 
 Mocha or Jest are my preferred choices, and they both support typescript. After trying a few testing with Mocha, I found the errors messages are a bit verbose.
 
-Looking at the Jest output, I see it is more descriptive. And after some research, especially [[2]](#references) and [[3]](#references), I saw its benefits. It provides parallel testing, which increases testing speed. Besides, Jest's output looks way more compact yet informative.
+Looking at the Jest output, I see it is more descriptive. And after some research, especially [[2]](https://blog.logrocket.com/the-best-unit-testing-frameworks-for-node-js/) and [[3]](https://codetain.com/blog/jest-test-framework-for-typescript), I saw its benefits. It provides parallel testing, which increases testing speed. Besides, Jest's output looks way more compact yet informative.
 
 Still, I ran some passing tests with Jest and Mocha. Then, I decided to choose Mocha for the project because it proved to be faster.
 
