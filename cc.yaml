@@ -7,10 +7,10 @@ entidad:
   - src/Id.ts
 lenguaje: typescript
 test: 
-  - tests/controller.test.ts
-  - tests/id.test.ts
-  - tests/picture.test.ts
-  - tests/rating.test.ts
-  - tests/review.test.ts
-  - tests/user.test.ts
+  - test/controller.test.ts
+  - test/id.test.ts
+  - test/picture.test.ts
+  - test/rating.test.ts
+  - test/review.test.ts
+  - test/user.test.ts
 fichero_tareas: package.json
