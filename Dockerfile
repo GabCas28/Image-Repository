@@ -1,7 +1,7 @@
 FROM gabcas28/ubuntu-docker-mocha
 
 WORKDIR /usr/image-repository/
-COPY . ./
+COPY *.json LICENSE assets ./
 
 ENV NODE_ENV dev
 
