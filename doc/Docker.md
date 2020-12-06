@@ -1,6 +1,6 @@
 # Docker Hub
 
-To understand more about Docker Hub repositories, these instructions might be useful [[1]](https://docs.docker.com/docker-hub/repos/). The repositories hold different images generated for our projects. In this case, the main goal is to create an image for testing purposes.
+To understand more about Docker Hub repositories, these instructions might be useful [[1]][docker repos]. The repositories hold different images generated for our projects. In this case, the main goal is to create an image for testing purposes.
 
 By linking the repository to a Github repository, we ask Docker Hub to collect these images and save them. This way we can access them and all the different versions we created.
 
@@ -8,13 +8,13 @@ To create Docker images, we use Dockerfile. These files contain instructions for
 
 Yet, the size of the container should be the smallest possible. This way it is easier to download, build and run. It will use less of the computer resources when running and will be more shareable across environments. For these reasons, in this exercise we will generate and compare different containers.
 
-The final goal is to make a container for testing. We could also want to assure that the tests are running in the same environment as our application [[2]](https://dzone.com/articles/testing-nodejs-application-using-mocha-and-docker). That’s why we could create one image based on the application’s container.
+The final goal is to make a container for testing. We could also want to assure that the tests are running in the same environment as our application [[2]][testing node]. That’s why we could create one image based on the application’s container.
 
 But, since there is no code for production yet, we'll only do the container for tests.
 
 ## Docker Hub connection
 
-First, link the GitHub profile with your Docker Hub account. These instructions follow all necessary steps for it’s connection [[3]](https://docs.docker.com/docker-hub/builds/link-source/)
+First, link the GitHub profile with your Docker Hub account. These instructions follow all necessary steps for it’s connection: [[3]][automatic builds].
 
 The Docker Hub linked to this project is: [gabcas28](https://hub.docker.com/repository/docker/gabcas28/).
 
@@ -38,13 +38,23 @@ As they define it in their website:
 
 This distribution is specially useful for the Docker containers since makes them way smaller.
 
+Finally, after further investigation, I tried the Ubuntu public image. It doesn't have Node nor NPM by default, so I decided to install them manually. I also added Mocha so it's not necessary to install it on every build.
+
+The size comparison is even. It only adds a few MB:
+
+![Image comparison2](./img/image-sizes.png)
+
+As shown in this caption, the Ubuntu image itself it only weights 72.8 MB. Once Node is installed, along with NPM and Mocha, it surpasses the previous image only by 8 MB.
+
+For this reason I pushed the image into Docker Hub, so it can be retrieved with the tag: `gabcas28/ubuntu-node-mocha`
+
 ## Running the image
 
-When the image is ready, we run it adding the tests volume into the correct directory.
+When the image is ready, we run it adding the tests volume into the correct directory. This way we can modify the tests without rebuilding the entire image. The source code is inside the container at the moment:
 
-    sudo docker run --rm -tv `pwd`:/usr/image-repository/tests/  gabcas28/image-repo/tests
+    sudo docker run --rm -tv `pwd`:/usr/image-repository/tests/  gabcas28/ubuntu-node-mocha
 
-This way we can modify the tests without rebuilding the entire image. The source code it's inside the container at the moment.
+
 
 ## Optimize the container
 
@@ -83,6 +93,21 @@ Using the `.dockerignore` as it follows:
     package-lock.json
     README.md
 
+The final stage is using the customized image. As it has Mocha already installed, this step is removed from the Dockerfile. This way the build time is reduced:
+
+    FROM gabcas28/ubuntu-docker-mocha    <-- new image
+
+    WORKDIR /usr/image-repository/
+    COPY . ./
+
+    ENV NODE_ENV dev
+
+    RUN npm install .           <-- no mocha installation needed
+
+    CMD ["npm","test"]
+
+
+
 ## References
 
 [1] Docker. (2020). Repositories. https://docs.docker.com/docker-hub/repos/
@@ -90,3 +115,7 @@ Using the `.dockerignore` as it follows:
 [2] Una-Tsameret, N. (2016). Testing a Node.JS Application Within a Docker Container. https://dzone.com/articles/testing-nodejs-application-using-mocha-and-docker
 
 [3] Docker. (2020). Configure automated builds from GitHub and BitBucket. https://docs.docker.com/docker-hub/builds/link-source/
+
+[docker repos]:https://docs.docker.com/docker-hub/repos/
+[testing node]:https://dzone.com/articles/testing-nodejs-application-using-mocha-and-docker
+[automatic builds]:https://docs.docker.com/docker-hub/builds/link-source/
