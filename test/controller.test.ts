@@ -243,4 +243,53 @@ describe("Unit Tests Controller.ts", function () {
       });
     });
   });
+
+  describe(`Get picture by Id`, function () {
+    let new_picture = new Picture(id, new_user, title, description, source);
+
+    it("With no pictures, should throw an error", function () {
+      let new_controller = new Controller();
+      assert.throw(() => new_controller.getPicture(id));
+    });
+
+    it("If picture not in list, should throw an error", function () {
+      let new_controller = new Controller();
+      new_controller.addPicture(new_picture);
+      assert.throw(() => new_controller.getPicture(new Id));
+    });
+
+    it("If picture is found, should return the expected picture", function () {
+      let new_controller = new Controller();
+      new_controller.addPicture(new_picture);
+      assert.deepEqual(
+        new_picture,
+        new_controller.getPicture(id),
+        "The picture is not as expected"
+      );
+    });
+
+    it("With two picture in the list, should return the expected pictures", function () {
+      let new_controller = new Controller();
+      new_controller.addPicture(new_picture);
+      new_controller.addPicture(new_picture2);
+      assert.deepEqual(
+        new_picture2,
+        new_controller.getPicture(id2),
+        "The picture is not as expected"
+      );
+      assert.deepEqual(
+        new_picture,
+        new_controller.getPicture(id),
+        "The picture is not as expected"
+      );
+    });
+  });
+
+  describe(`Update picture`, function () {
+    let new_picture = new Picture(id, new_user, title, description, source);
+    it("With no pictures, should throw an error", function () {
+      let new_controller = new Controller();
+      assert.throw(() => new_controller.updatePicture(new_picture));
+    });
+  });
 });

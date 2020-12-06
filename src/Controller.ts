@@ -1,4 +1,5 @@
 import { writeFile } from "fs";
+import { createImportEqualsDeclaration } from "typescript";
 import { Id } from "./Id";
 import { Picture } from "./Picture";
 
@@ -12,14 +13,16 @@ export class Controller {
     this.pictures = [];
   }
 
-  public getById(id: Id): Picture[] {
-    return this.getPictures().filter((e) => this.eqId(e.getId(), id));
+  public getPicture(id: Id): Picture {
+    if (!this.searchById(id)) {
+      throw new Error("Picture can't be found");
+    }
+    return this.searchById(id);
   }
-
   public uploadPicture(picture: Picture, data: Buffer): void {
     writeFile(picture.getSource(), data, this.handleError);
   }
-  
+
   private handleError(err: any) {
     if (err) throw err;
   }
@@ -28,7 +31,11 @@ export class Controller {
     return [...this.pictures];
   }
 
-  public updatePicture(picture: Picture): void {}
+  public updatePicture(picture: Picture): void {
+    if (this.canBeAdded(picture)) {
+      throw new Error("Picture can't be updated");
+    }
+  }
 
   public addPicture(picture: Picture): void {
     if (!this.canBeAdded(picture)) {
@@ -66,7 +73,11 @@ export class Controller {
   }
 
   private isDuplicate(picture: Picture): boolean {
-    return this.getById(picture.getId()).length > 0;
+    return this.searchById(picture.getId()) ? true : false;
+  }
+
+  private searchById(id: Id): Picture {
+    return this.getPictures().filter((e) => this.eqId(e.getId(), id))[0];
   }
 
   private eqId(e1: Id, e2: Id) {
