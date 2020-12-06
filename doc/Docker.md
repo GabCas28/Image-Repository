@@ -50,7 +50,7 @@ For this reason I pushed the image into Docker Hub, so it can be retrieved with 
 
 ## Running the image
 
-When the image is ready, we run it adding the tests volume into the correct directory. This way we can modify the tests without rebuilding the entire image. The source code is inside the container at the moment:
+When the image is ready, we run it adding the tests volume into the correct directory. This way we can modify the tests without rebuilding the entire image:
 
     sudo docker run --rm -tv `pwd`:/usr/image-repository/tests/  gabcas28/ubuntu-node-mocha
 
@@ -93,12 +93,16 @@ Using the `.dockerignore` as it follows:
     package-lock.json
     README.md
 
+We can also copy only the needed files:
+
+    COPY  *.json LICENSE assets src ./
+
 The final stage is using the customized image. As it has Mocha already installed, this step is removed from the Dockerfile. This way the build time is reduced:
 
     FROM gabcas28/ubuntu-docker-mocha    <-- new image
 
     WORKDIR /usr/image-repository/
-    COPY . ./
+    COPY  *.json LICENSE assets src ./
 
     ENV NODE_ENV dev
 
