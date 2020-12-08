@@ -13,6 +13,7 @@ describe("Unit Tests Controller.ts", function () {
   let source = `${__dirname}/../assets/example/picture.png`;
   let source2 = `${__dirname}/../assets/example2/picture2.png`;
   let new_user = new User("Gabriel", "Castro", "test@gmail.com");
+  let user2 = new User("Gabriel", "Castro Muñoz", "test2@gmail.com");
   let id = new Id();
   let id2 = new Id();
   let new_picture = new Picture(id, new_user, title, description, source);
@@ -255,7 +256,7 @@ describe("Unit Tests Controller.ts", function () {
     it("If picture not in list, should throw an error", function () {
       let new_controller = new Controller();
       new_controller.addPicture(new_picture);
-      assert.throw(() => new_controller.getPicture(new Id));
+      assert.throw(() => new_controller.getPicture(new Id()));
     });
 
     it("If picture is found, should return the expected picture", function () {
@@ -286,10 +287,72 @@ describe("Unit Tests Controller.ts", function () {
   });
 
   describe(`Update picture`, function () {
-    let new_picture = new Picture(id, new_user, title, description, source);
     it("With no pictures, should throw an error", function () {
       let new_controller = new Controller();
       assert.throw(() => new_controller.updatePicture(new_picture));
+    });
+
+    it("Updating a not found id, should throw an error", function () {
+      let new_controller = new Controller();
+      new_controller.addPicture(new_picture);
+      assert.throw(() => new_controller.updatePicture(new_picture2));
+    });
+
+    it("Updating an identical picture, shouldn't throw an error", function () {
+      let new_controller = new Controller();
+      new_controller.addPicture(new_picture);
+      assert.doesNotThrow(() => new_controller.updatePicture(new_picture));
+      assert.deepEqual(new_controller.getPicture(id), new_picture);
+    });
+
+    it("Updating a picture with a modified title, shouldn't throw an error", function () {
+      let new_controller = new Controller();
+      let updated_picture = new Picture(
+        id,
+        new_user,
+        title2,
+        description,
+        source
+      );
+      new_controller.addPicture(new_picture);
+      assert.doesNotThrow(() => new_controller.updatePicture(updated_picture));
+      assert.deepEqual(new_controller.getPicture(id), updated_picture);
+    });
+
+    it("Updating a picture with a modified description, shouldn't throw an error", function () {
+      let new_controller = new Controller();
+      let updated_picture = new Picture(
+        id,
+        new_user,
+        title,
+        description2,
+        source
+      );
+      new_controller.addPicture(new_picture);
+      assert.doesNotThrow(() => new_controller.updatePicture(updated_picture));
+      assert.deepEqual(new_controller.getPicture(id), updated_picture);
+    });
+
+    it("Updating a picture with a modified source, shouldn't throw an error", function () {
+      let new_controller = new Controller();
+      let updated_picture = new Picture(
+        id,
+        new_user,
+        title,
+        description,
+        source2
+      );
+      new_controller.addPicture(new_picture);
+      assert.doesNotThrow(() => new_controller.updatePicture(updated_picture));
+      assert.deepEqual(new_controller.getPicture(id), updated_picture);
+    });
+
+    it("Updating a picture with a modified user, shouldn't throw an error", function () {
+      let new_controller = new Controller();
+      let updated_picture = new Picture(id, user2, title, description, source);
+      new_controller.addPicture(new_picture);
+      assert.doesNotThrow(() => new_controller.updatePicture(updated_picture));
+      assert.deepEqual(new_controller.getPicture(id), updated_picture);
     });
   });
 });

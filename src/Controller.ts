@@ -1,5 +1,4 @@
 import { writeFile } from "fs";
-import { createImportEqualsDeclaration } from "typescript";
 import { Id } from "./Id";
 import { Picture } from "./Picture";
 
@@ -19,6 +18,7 @@ export class Controller {
     }
     return this.searchById(id);
   }
+  
   public uploadPicture(picture: Picture, data: Buffer): void {
     writeFile(picture.getSource(), data, this.handleError);
   }
@@ -35,6 +35,7 @@ export class Controller {
     if (this.canBeAdded(picture)) {
       throw new Error("Picture can't be updated");
     }
+    this.setPictures([picture, ...this.getFilteredPictureList(picture)]);
   }
 
   public addPicture(picture: Picture): void {
@@ -61,7 +62,9 @@ export class Controller {
   }
 
   private getFilteredPictureList(picture: Picture): Picture[] {
-    return this.getPictures().filter((elem) => elem !== picture);
+    return this.getPictures().filter(
+      (elem) => elem.getId() !== picture.getId()
+    );
   }
 
   private canBeAdded(picture: Picture): boolean {
