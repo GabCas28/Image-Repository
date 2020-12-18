@@ -1,4 +1,4 @@
-FROM gabcas28/ubuntu-docker-mocha
+FROM gabcas28/ubuntu-node-mocha
 
 WORKDIR /app
 COPY *.json assets ./
