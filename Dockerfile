@@ -4,7 +4,6 @@ RUN useradd -ms /bin/bash tester
 
 WORKDIR /app
 
-# .gitignore filters unnecessary files. (LICENSE, package.json, assets and src) 
 COPY ./ ./ 
 
 RUN chown -R tester:tester /app \
