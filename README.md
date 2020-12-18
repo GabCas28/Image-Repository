@@ -26,7 +26,7 @@ In order to build the javascript files from the typescript code:
 
 ## Task 3
 
-### [Project progress](7doc/T3-progress.md)
+### [Project progress](/doc/T3-progress.md)
 
 ### [Docker containers](/doc/Docker.md)
 
