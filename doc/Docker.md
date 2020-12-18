@@ -43,6 +43,10 @@ The following picture shows an example of an automatic build when the base image
 
 ![Automatic update](./img/automatic-update.png)
 
+## Container Registry
+
+Since there are a few free options in the market, I chose [GitHub Actions](https://github.com/GabCas28/ubuntu-node-mocha/actions/runs/429876969) to register the containers of the base image.
+
 ## Running the project's image
 
 When the image is ready, we run it adding the tests volume into the correct directory. This way we can modify the tests without rebuilding the entire image:
@@ -58,11 +62,10 @@ The generated Dockerfile for the application is the following: [Dockerfile](../D
     RUN useradd -ms /bin/bash tester
 
     WORKDIR /app
-    COPY . ./
 
-    RUN chown -R tester:tester /app \
-        && chmod 755 /app \
-        && npm install .
+    COPY *.json ./ 
+
+    RUN npm install .
 
     USER tester
 
