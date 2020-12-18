@@ -231,7 +231,7 @@ describe("Unit Tests Controller.ts", function () {
       );
     });
   });
- /*  describe(`Load sample picture`, function () {
+  describe(`Load sample picture`, function () {
     it("Should be uploaded", function () {
       let new_controller = new Controller();
       readFile(`${__dirname}/sample_pic.png`, (err, data) => {
@@ -243,7 +243,7 @@ describe("Unit Tests Controller.ts", function () {
         );
       });
     });
-  }); */
+  });
 
   describe(`Get picture by Id`, function () {
     let new_picture = new Picture(id, new_user, title, description, source);
