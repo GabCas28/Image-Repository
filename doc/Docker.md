@@ -65,9 +65,7 @@ The generated Dockerfile for the application is the following: [Dockerfile](../D
 
     COPY *.json ./ 
 
-    RUN chown -R tester:tester /app \
-        && chmod 755 /app \
-        && npm install .
+    RUN npm install .
 
     USER tester
 

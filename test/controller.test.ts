@@ -10,8 +10,8 @@ describe("Unit Tests Controller.ts", function () {
   let title2 = "Picture 2";
   let description = "Test Picture 1";
   let description2 = "Test Picture 2";
-  let source = `/app/picture.png`;
-  let source2 = `/app/picture2.png`;
+  let source = `${__dirname}/../assets/example/picture.png`;
+  let source2 = `${__dirname}/../assets/example2/picture2.png`;
   let new_user = new User("Gabriel", "Castro", "test@gmail.com");
   let user2 = new User("Gabriel", "Castro Muñoz", "test2@gmail.com");
   let id = new Id();
@@ -302,8 +302,14 @@ describe("Unit Tests Controller.ts", function () {
       let new_controller = new Controller();
       new_controller.addPicture(new_picture);
       assert.doesNotThrow(() => new_controller.updatePicture(new_picture));
+    });
+
+    it("Updating an identical picture, they should be identical", function () {
+      let new_controller = new Controller();
+      new_controller.addPicture(new_picture);
       assert.deepEqual(new_controller.getPicture(id), new_picture);
     });
+
 
     it("Updating a picture with a modified title, shouldn't throw an error", function () {
       let new_controller = new Controller();
