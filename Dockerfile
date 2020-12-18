@@ -7,7 +7,7 @@ ENV NODE_ENV dev
 
 RUN npm install .
 
-RUN useradd -m tester
+RUN useradd -ms /bin/bash tester
 USER tester
 
 CMD npm test
