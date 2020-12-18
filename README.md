@@ -24,11 +24,13 @@ In order to build the javascript files from the typescript code:
 
 # Document Index
 
-## Tier 3
+## Task 3
+
+### [Project progress](7doc/T3-progress.md)
 
 ### [Docker containers](/doc/Docker.md)
 
-## Tier 2
+## Task 2
 
 ### [Task Runner](/doc/Task-Runner.md)
 
@@ -36,7 +38,7 @@ In order to build the javascript files from the typescript code:
 
 ### [Test-Framework](/doc/Test-Framework.md)
 
-## Tier 1
+## Task 1
 
 ### [Architecture](/doc/Architecture.md)
 
@@ -44,7 +46,7 @@ In order to build the javascript files from the typescript code:
 
 ### [Initial classes](/doc/Initial-classes.md)
 
-## Tier 0
+## Task 0
 
 ### [Motivation](/doc/Motivation.md)
 
