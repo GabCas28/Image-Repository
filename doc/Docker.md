@@ -55,14 +55,15 @@ The generated Dockerfile for the application is the following: [Dockerfile](../D
 
     FROM gabcas28/ubuntu-node-mocha
 
-    WORKDIR /app
-    COPY *.json assets ./
-
-    ENV NODE_ENV dev
-
-    RUN npm install .
-
     RUN useradd -ms /bin/bash tester
+
+    WORKDIR /app
+    COPY . ./
+
+    RUN chown -R tester:tester /app \
+        && chmod 755 /app \
+        && npm install .
+
     USER tester
 
     CMD npm test
@@ -77,6 +78,11 @@ Using the  [.dockerignore](../.dockerignore) as it follows:
     doc
     package-lock.json
     README.md
+    *.yaml
+    *.yml
+    .dockerignore
+    .gitignore
+
 
 ## References
 

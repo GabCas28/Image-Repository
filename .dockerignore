@@ -4,3 +4,9 @@ tests
 doc
 package-lock.json
 README.md
+*.yaml
+*.yml
+.dockerignore
+.gitignore
+Dockerfile
+LICENSE
