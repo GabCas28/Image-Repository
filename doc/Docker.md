@@ -24,24 +24,30 @@ As they define it in their website:
 
 > Alpine Linux is a security-oriented, lightweight Linux distribution based on musl libc and busybox.
 
-Even though the lightest image is node:alpine, I will use the ubuntu one. Because it's only 140MB bigger and a more familiar environment. Besides, it allows for automatic rebuilding when the base image is updated.
-
-![Trigger image build](./img/base-image-build.png)
+Even though the lightest image is node:alpine, I will use the ubuntu one. Because it's only 140MB bigger and a more familiar environment.
 
 ## About the custom base image
 
-This custom image contains only node and mocha so it can be reused in other projects. It is not as secure as an Alpine distribution, yet it is also more flexible with file permissions.
+This custom base image contains only node and mocha so it can be reused in other projects. It is not as secure as an Alpine distribution, yet it is more flexible with file permissions.
 
 The base image is built automatically from an [specific project found here](https://github.com/GabCas28/ubuntu-node-mocha).
 
 
-## Running the image
+## Automatic build when base image updates
+
+Another good thing about custom base image is that they allow for automatic rebuilding when the base image is updated.
+
+![Trigger image build](./img/base-image-build.png)
+
+The following picture shows an example of an automatic build when the base image is updated. The automatic build has the same identifier as the previous one.
+
+![Automatic update](./img/automatic-update.png)
+
+## Running the project's image
 
 When the image is ready, we run it adding the tests volume into the correct directory. This way we can modify the tests without rebuilding the entire image:
 
-    sudo docker run --rm -tv `pwd`:/app/test/ gabcas28/image-repository
-
-
+    sudo docker run --rm -tv `pwd`:/app gabcas28/image-repository
 
 ## Optimized container
 
@@ -71,9 +77,6 @@ Using the  [.dockerignore](../.dockerignore) as it follows:
     doc
     package-lock.json
     README.md
-
-
-
 
 ## References
 
