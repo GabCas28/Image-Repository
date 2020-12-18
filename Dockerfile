@@ -1,10 +1,13 @@
 FROM gabcas28/ubuntu-docker-mocha
 
 WORKDIR /app
-COPY *.json LICENSE assets src ./
+COPY *.json assets ./
 
 ENV NODE_ENV dev
 
 RUN npm install .
 
-CMD ["npm","test"]
+RUN useradd -m tester
+USER tester
+
+CMD npm test
