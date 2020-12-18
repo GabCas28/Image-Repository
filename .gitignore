@@ -1,3 +1,7 @@
+# test_ouput
+test/test_ouput/*
+
+
 # Logs
 logs
 *.log

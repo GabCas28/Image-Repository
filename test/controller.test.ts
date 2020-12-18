@@ -10,8 +10,8 @@ describe("Unit Tests Controller.ts", function () {
   let title2 = "Picture 2";
   let description = "Test Picture 1";
   let description2 = "Test Picture 2";
-  let source = `${__dirname}/../assets/example/picture.png`;
-  let source2 = `${__dirname}/../assets/example2/picture2.png`;
+  let source = `${__dirname}/test_output/picture.png`;
+  let source2 = `${__dirname}/test_output/picture2.png`;
   let new_user = new User("Gabriel", "Castro", "test@gmail.com");
   let user2 = new User("Gabriel", "Castro Muñoz", "test2@gmail.com");
   let id = new Id();
