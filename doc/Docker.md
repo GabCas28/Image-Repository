@@ -6,10 +6,6 @@ First, link the GitHub profile with your Docker Hub account. These instructions 
 
 The Docker Hub linked to this project is: [gabcas28](https://hub.docker.com/repository/docker/gabcas28/).
 
-## New repository with automated build
-
-This is the Docker Hub Repository linked to this project: [Image Repository](https://hub.docker.com/repository/docker/gabcas28/image-repository).
-
 ## Trying different containers
 
 Three base images are compared, from heaviest to lightest:
@@ -28,7 +24,7 @@ Even though the lightest image is node:alpine, I will use the ubuntu one. Becaus
 
 ## About the custom base image
 
-This custom base image contains only node and mocha so it can be reused in other projects. It is not as secure as an Alpine distribution, yet it is more flexible with file permissions.
+This custom base image contains only node and mocha so it can be reused in other projects. The rest of the modules are installed inside the project's test container.
 
 The base image is built automatically from an [specific project found here](https://github.com/GabCas28/ubuntu-node-mocha).
 
@@ -85,7 +81,6 @@ Using the  [.dockerignore](../.dockerignore) as it follows:
     *.yml
     .dockerignore
     .gitignore
-
 
 ## References
 
