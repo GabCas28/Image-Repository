@@ -17,4 +17,4 @@ jobs:
       - name: List files
         run: ls
       - name: Get and run docker image
-        run: sudo docker run --rm -tv `pwd`:/app gabcas28/image-repository
+        run: sudo docker run -v `pwd`:/app gabcas28/image-repository
