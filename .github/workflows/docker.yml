@@ -13,5 +13,3 @@ jobs:
     container: 
       image: gabcas28/image-repository:latest
       options: -tv /__w/Image-Repository/Image-Repository:/app
-      
-
