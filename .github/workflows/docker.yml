@@ -15,5 +15,5 @@ jobs:
       - uses: addnab/docker-run-action@v1
         with:
           image: gabcas28/image-repository:latest
-          options: -tv `pwd`:/app gabcas28/image-repository
+          options: -tv /home/runner/work/Image-Repository/Image-Repository:/app gabcas28/image-repository
           run: npm test
