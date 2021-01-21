@@ -1,10 +1,8 @@
 language: node_js
-services:
-  - docker
 node_js:
   - "10"
   - "node"
 cache: npm
 install:
- - docker run gabcas28/image-repository
+  - npm ci
 script: npm test
