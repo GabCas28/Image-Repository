@@ -5,8 +5,6 @@ node_js:
   - "10"
   - "node"
 cache: npm
-before_install:
- - docker pull gabcas28/image-repository
 install:
- - docker run gabcas28/image-repository -v `pwd`:/app
+ - docker run gabcas28/image-repository
 script: npm test
