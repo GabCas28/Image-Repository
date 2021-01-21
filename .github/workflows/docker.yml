@@ -13,5 +13,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Get and run docker image
-        run: docker run -v `pwd`:/app gabcas28/image-repository
+        run: docker run -tv `pwd`:/app gabcas28/image-repository
+        continue-on-error: true
+        
+      - name: install dependencies
+        run: npm ci
+        continue-on-error: true
+        
+      - name: run tests
+        run: npm test
         continue-on-error: true
