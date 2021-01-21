@@ -12,16 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     container: 
       image: gabcas28/image-repository:latest
-      options: -v /__w/Image-Repository/Image-Repository:/app
+      options: -v ~/:/app
     steps:
+      - uses: actions/checkout@v2
       - name:  What OS is running
         run: uname -a
       - name: What node version do we have
-        run: node --version
-      - name: What is the directory
-        run: pwd
-      - name: What is in the directory
-        run: ls
+        run: npm ci
       - name: Run tests
         run: npm test
 
