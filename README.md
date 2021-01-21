@@ -1,6 +1,7 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-red.svg)](https://www.gnu.org/licenses/gpl-3.0)&nbsp;&nbsp;
-![Build in progress](https://img.shields.io/badge/Build-In%20Progress-yellow)&nbsp;&nbsp;
-[![Open with GH-Pages](https://img.shields.io/badge/View%20Project%20in%20GitHub%20Pages-brightgreen)](https://gabcas28.github.io/Image-Repository/)
+[![Build Status](https://travis-ci.com/GabCas28/Image-Repository.svg?branch=main)](https://travis-ci.com/GabCas28/Image-Repository)&nbsp;&nbsp;
+![CI](https://github.com/GabCas28/Image-Repository/workflows/CI/badge.svg)&nbsp;&nbsp;
+[![Open with GH-Pages](https://img.shields.io/badge/View%20Project%20in%20GitHub%20Pages-purple)](https://gabcas28.github.io/Image-Repository/)
 
 # Image Repository
 
@@ -23,6 +24,10 @@ In order to build the javascript files from the typescript code:
     npm build
 
 # Document Index
+
+## Task 4
+
+### [Continuous Integration](/doc/Continuous-Integration.md)
 
 ## Task 3
 

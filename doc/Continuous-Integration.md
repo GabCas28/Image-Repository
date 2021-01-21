@@ -28,10 +28,60 @@ To get the badge into your README file, click on the badge in the TravisCI's rep
 
 [![Build Status](https://travis-ci.com/GabCas28/Image-Repository.svg?branch=main)](https://travis-ci.com/GabCas28/Image-Repository)
 
-
 ## GitHub Actions
 
-## Jenkins
+Using GitHub Actions, we can reproduce the previous CI with the following code:
+
+
+    name: CI
+
+    on:
+    push:
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
+    workflow_dispatch:
+
+    jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+            
+        - name: Cache node modules
+            uses: actions/cache@v2
+            env:
+            cache-name: cache-node-modules
+            with:
+            # npm cache files are stored in `~/.npm` on Linux/macOS
+            path: ~/.npm
+            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: |
+                ${{ runner.os }}-build-${{ env.cache-name }}-
+                ${{ runner.os }}-build-
+                ${{ runner.os }}-
+            
+        - name: install packages
+            run: npm ci
+            
+        - name: run tests
+            run: npm test
+
+## Using Docker with TravisCI
+
+Using Docker Service, Travis CI allows us to use docker commands. In the following snippet, the generated image is pulled and run with the volume mounted. It will test the app inside the container.
+
+    language: node_js
+    services:
+    - docker
+    node_js:
+    - "10"
+    - "node"
+    cache: npm
+    before_install:
+    - docker pull gabcas28/image-repository
+    - docker run gabcas28/image-repository -tv `pwd`:/app
+    script: npm test
 
 ## References
 
