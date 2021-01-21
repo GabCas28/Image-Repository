@@ -12,11 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: find actual directory
-        id: dir
-        run: pwd
-      - uses: addnab/docker-run-action@v1
         with:
           image: gabcas28/image-repository:latest
-          options: -tv ${{steps.dir.output}}:/app gabcas28/image-repository
+          options: -tv /home/runner/work/Image-Repository/Image-Repository:/app gabcas28/image-repository
           run: npm test
