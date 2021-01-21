@@ -28,7 +28,6 @@ This custom base image contains only node and mocha so it can be reused in other
 
 The base image is built automatically from an [specific project found here](https://github.com/GabCas28/ubuntu-node-mocha).
 
-
 ## Automatic build when base image updates
 
 Another good thing about custom base image is that they allow for automatic rebuilding when the base image is updated.
