@@ -30,7 +30,7 @@ To get the badge into your README file, click on the badge in the TravisCI's rep
 
 ## GitHub Actions
 
-Using GitHub Actions, we can reproduce the previous CI with the following code:
+Using GitHub Actions, we can reproduce the previous CI with the following code. It includes the cache use for node but not the different node versions.
 
 
     name: CI
@@ -67,6 +67,11 @@ Using GitHub Actions, we can reproduce the previous CI with the following code:
         - name: run tests
             run: npm test
 
+The badge for GitHub Actions is the following:
+
+![CI](https://github.com/GabCas28/Image-Repository/workflows/CI/badge.svg)&nbsp;&nbsp;
+
+
 ## Using Docker with GitHub Actions
 
 Using Docker Service, we can use the docker image to test the app automatically.
@@ -91,6 +96,11 @@ Using Docker Service, we can use the docker image to test the app automatically.
         - name: Run with Docker
             run: docker run gabcas28/Image-Repository:latest -v ${{steps.directory.pwd}}:/app
 
+## About the selection criteria of these example CI tools
+
+GitHub Actions and Travis CI are selected for this exercise because they are easy to use and have a great integration with GitHub and its checks API.
+
+Besides, Travis backs up the latest build before creating a new one and both tools are free.
 
 ## References
 
