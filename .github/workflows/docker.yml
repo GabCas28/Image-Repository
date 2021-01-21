@@ -11,5 +11,5 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Get docker image
-        run: docker --version
+      - name: Get and run docker image
+        run: sudo docker run --rm -tv `pwd`:/app gabcas28/image-repository
