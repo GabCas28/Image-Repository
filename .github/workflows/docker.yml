@@ -10,9 +10,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: 
-      image: gabcas28/image-repository:latest
-      options: -tv /__w/Image-Repository/Image-Repository:/app
     steps:
-      - name: Run tests
-        run: npm test
+      - name: Get docker image
+        run: docker --version
