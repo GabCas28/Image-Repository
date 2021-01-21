@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     container: 
       image: gabcas28/image-repository:latest
-      options: -v `pwd`:/app
+      options: -v /__w/Image-Repository/Image-Repository:/app
     steps:
       - name:  What OS is running
         run: uname -a
