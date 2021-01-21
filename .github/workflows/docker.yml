@@ -17,3 +17,8 @@ jobs:
         run: uname -a
       - name: What node version do we have
         run: node --version
+      - name: What is the directory
+        run: pwd
+      - name: Run tests
+        run: npm test
+
