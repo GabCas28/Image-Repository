@@ -12,9 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: List directory
-        run: pwd
-      - name: List files
-        run: ls
       - name: Get and run docker image
-        run: sudo docker run -v `pwd`:/app gabcas28/image-repository
+        run: docker run -v `pwd`:/app gabcas28/image-repository
+        continue-on-error: true
