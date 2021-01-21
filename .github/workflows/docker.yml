@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     container: 
       image: gabcas28/image-repository:latest
+      options: -v `pwd`:/app
     steps:
       - name:  What OS is running
         run: uname -a
@@ -19,6 +20,8 @@ jobs:
         run: node --version
       - name: What is the directory
         run: pwd
+      - name: What is in the directory
+        run: ls
       - name: Run tests
         run: npm test
 
