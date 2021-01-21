@@ -67,18 +67,30 @@ Using GitHub Actions, we can reproduce the previous CI with the following code:
         - name: run tests
             run: npm test
 
-## Using Docker with TravisCI
+## Using Docker with GitHub Actions
 
-Using Docker Service, Travis CI allows us to use docker commands. This way we can use the docker image to test the app automatically.
+Using Docker Service, we can use the docker image to test the app automatically.
 
-    ...
-    services:
-    - docker
-    before_install:
-    - docker pull gabcas28/image-repository
-    install:
-    - docker run gabcas28/image-repository
-    script: npm test
+    name: CI with Docker
+
+    on:
+    push:
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
+    workflow_dispatch:
+
+    jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - name: get Directory
+            id: directory
+            run: pwd    
+        - name: Run with Docker
+            run: docker run gabcas28/Image-Repository:latest -v ${{steps.directory.pwd}}:/app
+
 
 ## References
 
