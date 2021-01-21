@@ -13,8 +13,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name : directory
-        run: pwd
-
-    container: 
-      image: gabcas28/image-repository:latest
-      options: -tv /home/runner/work/Image-Repository/Image-Repository:/app gabcas28/image-repository
+        run: docker run gabcas28/image-repository:latest -v /home/runner/work/Image-Repository/Image-Repository:/app gabcas28/image-repository
