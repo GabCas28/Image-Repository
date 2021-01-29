@@ -25,6 +25,10 @@ In order to build the javascript files from the typescript code:
 
 # Document Index
 
+## Task 5
+
+### [Microservices](/doc/Microservices.md)
+
 ## Task 4
 
 ### [Continuous Integration](/doc/Continuous-Integration.md)
