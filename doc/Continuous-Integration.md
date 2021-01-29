@@ -20,7 +20,7 @@ Travis is well integrated with GitHub and with every commit will run the workflo
     - npm ci
     script: npm test
 
-The workflow will run using the minimum version of npm supported, which is the version 10 (found out after try and error of several version) and it is also tested with the latest stable build. 
+The workflow will run using the minimum version of npm supported, which is the version 10 (found out after try and error of several version) and it is also tested with the latest stable build.
 
 Using the `cache: npm` we allow Travis to cache all the node_modules speeding the workflow.
 
@@ -30,8 +30,7 @@ To get the badge into your README file, click on the badge in the TravisCI's rep
 
 ## GitHub Actions
 
-Using GitHub Actions, we can reproduce the previous CI with the following code. It includes the cache use for node but not the different node versions.
-
+Using GitHub Actions, we can reproduce the previous CI with the following code. It includes the cache use for node but not the different node versions. [[2]]
 
     name: CI
 
@@ -70,7 +69,6 @@ Using GitHub Actions, we can reproduce the previous CI with the following code. 
 The badge for GitHub Actions is the following:
 
 ![CI](https://github.com/GabCas28/Image-Repository/workflows/CI/badge.svg)&nbsp;&nbsp;
-
 
 ## Using Docker with GitHub Actions
 
