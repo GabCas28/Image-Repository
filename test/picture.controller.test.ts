@@ -1,9 +1,9 @@
 import { assert, expect } from "chai";
 import { readFile } from "fs";
-import { Controller } from "../src/Controller";
-import { Id } from "../src/Id";
-import { Picture } from "../src/Picture";
-import { User } from "../src/User";
+import { Controller } from "../src/Pictures/Controllers/Picture.Controller";
+import { Id } from "../src/Common/Models/Id";
+import { Picture } from "../src/Pictures/Models/Picture";
+import { User } from "../src/Common/Models/User";
 
 describe("Unit Tests Controller.ts", function () {
   let title = "Picture 1";

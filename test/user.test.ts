@@ -1,5 +1,5 @@
 import { assert } from "chai";
-import { User } from "../src/User";
+import { User } from "../src/Common/Models/User";
 
 describe("Unit Tests User.ts", function () {
   // Testea que se haya cargado bien la librería

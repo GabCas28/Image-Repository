@@ -1,6 +1,6 @@
 import { writeFile } from "fs";
-import { Id } from "./Id";
-import { Picture } from "./Picture";
+import { Id } from "../../Common/Models/Id";
+import { Picture } from "../Models/Picture";
 
 export class Controller {
   private pictures: Picture[];

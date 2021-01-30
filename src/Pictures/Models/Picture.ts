@@ -1,7 +1,5 @@
-import { User } from "./User";
-import { Review } from "./Review";
-import { Rating } from "./Rating";
-import { Id } from "./Id";
+import { User } from "../../Common/Models/User";
+import { Id } from "../../Common/Models/Id";
 
 export class Picture {
   private id: Id;
@@ -9,8 +7,6 @@ export class Picture {
   private title: String;
   private description: String;
   private source: String;
-  private reviews: Review[];
-  private ratings: Rating[];
 
   constructor(
     id: Id,
@@ -24,8 +20,6 @@ export class Picture {
     this.title = title;
     this.description = description;
     this.source = source;
-    this.reviews = [];
-    this.ratings = [];
   }
 
   get [Symbol.toStringTag]() {

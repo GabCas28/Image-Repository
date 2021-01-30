@@ -1,5 +1,5 @@
 import { assert, expect } from "chai";
-import { Id } from "../src/Id";
+import { Id } from "../src/Common/Models/Id";
 import {
   version as uuidVersion,
   validate as uuidValidate,

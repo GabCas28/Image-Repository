@@ -1,7 +1,7 @@
 import { assert, expect } from "chai";
-import { User } from "../src/User";
-import { Picture } from "../src/Picture";
-import { Id } from "../src/Id";
+import { User } from "../src/Common/Models/User";
+import { Picture } from "../src/Pictures/Models/Picture";
+import { Id } from "../src/Common/Models/Id";
 
 describe("Unit Tests Picture.ts", function () {
   var test_user = new User("Gabriel", "Castro", "test@gmail.com");
