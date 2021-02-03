@@ -1,6 +1,6 @@
 import { assert } from "chai";
-import { User } from "../src/Common/Models/User";
-import { Rating } from "../src/Ratings/Models/Rating";
+import { User } from "../src/common/models/User";
+import { Rating } from "../src/ratings/models/Rating";
 
 describe("Unit Tests Rating.ts", function () {
   var test_user = new User("Gabriel", "Castro", "test@gmail.com");

@@ -1,5 +1,5 @@
-import { User } from "../../Common/Models/User";
-import { Id } from "../../Common/Models/Id";
+import { User } from "../../common/models/User";
+import { Id } from "../../common/models/Id";
 
 export class Picture {
   private id: Id;

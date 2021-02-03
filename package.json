@@ -1,47 +1,53 @@
 {
-  "name": "image-repository",
-  "version": "0.2.0",
-  "description": "App to allow users to store, share and review pictures",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "devDependencies": {
-    "@types/chai": "^4.2.14",
-    "@types/mocha": "^8.0.3",
-    "@types/uuid": "^8.3.0",
-    "chai": "^4.2.0",
-    "mocha": "^8.2.1",
-    "nyc": "^15.1.0",
-    "ts-node": "^9.0.0",
-    "typescript": "^4.0.5",
-    "uuid": "^8.3.1"
-  },
-  "scripts": {
-    "test": "mocha -r ts-node/register test/**/*.test.ts"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/GabCas28/Image-Repository.git"
-  },
-  "keywords": [
-    "Image",
-    "Repository"
-  ],
-  "author": "Gabriel Castro Muñoz",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/GabCas28/Image-Repository/issues"
-  },
-  "homepage": "https://github.com/GabCas28/Image-Repository#readme",
-  "dependencies": {
-    "@types/chai": "^4.2.14",
-    "@types/mocha": "^8.0.3",
-    "@types/node": "^14.14.6",
-    "chai": "^4.2.0",
-    "mocha": "^8.2.1",
-    "nyc": "^15.1.0",
-    "ts-node": "^9.0.0",
-    "typescript": "^4.0.5"
-  }
+    "name": "image-repository",
+    "version": "0.2.0",
+    "description": "App to allow users to store, share and review pictures",
+    "main": "index.js",
+    "type": "module",
+    "directories": {
+        "test": "test"
+    },
+    "devDependencies": {
+        "@types/chai": "^4.2.14",
+        "@types/mocha": "^8.0.3",
+        "@types/supertest": "^2.0.10",
+        "@types/uuid": "^8.3.0",
+        "chai": "^4.2.0",
+        "mocha": "^8.2.1",
+        "nyc": "^15.1.0",
+        "supertest": "^6.1.3",
+        "ts-node": "^9.0.0",
+        "typescript": "^4.0.5",
+        "uuid": "^8.3.1"
+    },
+    "scripts": {
+        "test": "mocha --exit -r ts-node/register test/**/*.test.ts",
+        "start": "nodemon ./src/index.ts"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/GabCas28/Image-Repository.git"
+    },
+    "keywords": [
+        "Image",
+        "Repository"
+    ],
+    "author": "Gabriel Castro Muñoz",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/GabCas28/Image-Repository/issues"
+    },
+    "homepage": "https://github.com/GabCas28/Image-Repository#readme",
+    "dependencies": {
+        "@types/chai": "^4.2.14",
+        "@types/mocha": "^8.0.3",
+        "@types/node": "^14.14.6",
+        "body-parser": "^1.19.0",
+        "chai": "^4.2.0",
+        "express": "^4.17.1",
+        "mocha": "^8.2.1",
+        "nyc": "^15.1.0",
+        "ts-node": "^9.0.0",
+        "typescript": "^4.0.5"
+    }
 }

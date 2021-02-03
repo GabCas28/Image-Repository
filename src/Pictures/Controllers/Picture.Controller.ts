@@ -1,89 +1,33 @@
-import { writeFile } from "fs";
-import { Id } from "../../Common/Models/Id";
-import { Picture } from "../Models/Picture";
+import { Id } from '../../common/models/Id';
+import { PictureModel } from '../models/picture.model';
 
-export class Controller {
-  private pictures: Picture[];
+let picture_controller = new PictureModel();
 
-  get [Symbol.toStringTag]() {
-    return "Controller";
-  }
-  constructor() {
-    this.pictures = [];
-  }
+exports.listAll = (req: any, res: any) => {
+	console.log('LIST ALL');
+	res.status(200).send({ 'controller': picture_controller });
+};
 
-  public getPicture(id: Id): Picture {
-    if (!this.searchById(id)) {
-      throw new Error("Picture can't be found");
-    }
-    return this.searchById(id);
-  }
-  
-  public uploadPicture(picture: Picture, data: Buffer): void {
-    writeFile(picture.getSource(), data, this.handleError);
-  }
+exports.getPicture = (req: any, res: any) => {
+	console.log('GET PICTURE');
+	res.status(200).send({ 'picture': picture_controller.getPicture(new Id(req.params.id)) });
+};
 
-  private handleError(err: any) {
-    if (err) throw err;
-  }
+exports.addPicture = (req: any, res: any) => {
+	console.log('ADD PICTURE');
+	picture_controller.addPicture(req.picture);
+	res.status(201).send({ 'controller': picture_controller });
+};
 
-  public getPictures(): Picture[] {
-    return [...this.pictures];
-  }
+exports.patchPicture = (req: any, res: any) => {
+	console.log('UPDATE PICTURE');
+	picture_controller.updatePicture(req.picture);
+	res.status(200).send({ 'controller': picture_controller });
+};
 
-  public updatePicture(picture: Picture): void {
-    if (this.canBeAdded(picture)) {
-      throw new Error("Picture can't be updated");
-    }
-    this.setPictures([picture, ...this.getFilteredPictureList(picture)]);
-  }
-
-  public addPicture(picture: Picture): void {
-    if (!this.canBeAdded(picture)) {
-      throw new Error("Picture can't be added");
-    }
-    this.setPictures(this.augmentedPictureList(picture));
-  }
-
-  public deletePicture(picture: Picture): void {
-    if (!this.canBeDeleted(picture)) {
-      throw new Error("Picture not found");
-    }
-    this.setPictures(this.getFilteredPictureList(picture));
-  }
-
-  private setPictures(pictureList: Picture[]): boolean {
-    this.pictures = pictureList;
-    return true;
-  }
-
-  private augmentedPictureList(picture: Picture): Picture[] {
-    return [picture, ...this.getPictures()];
-  }
-
-  private getFilteredPictureList(picture: Picture): Picture[] {
-    return this.getPictures().filter(
-      (elem) => elem.getId() !== picture.getId()
-    );
-  }
-
-  private canBeAdded(picture: Picture): boolean {
-    return picture.isValid() && !this.isDuplicate(picture);
-  }
-
-  private canBeDeleted(picture: Picture): boolean {
-    return this.isDuplicate(picture);
-  }
-
-  private isDuplicate(picture: Picture): boolean {
-    return this.searchById(picture.getId()) ? true : false;
-  }
-
-  private searchById(id: Id): Picture {
-    return this.getPictures().filter((e) => this.eqId(e.getId(), id))[0];
-  }
-
-  private eqId(e1: Id, e2: Id) {
-    return e1 === e2;
-  }
-}
+exports.deletePicture = (req: any, res: any) => {
+	console.log('DELETE PICTURE');
+	picture_controller.deletePicture(req.picture);
+	res.status(200).send({ 'controller': picture_controller });
+};
+exports.picture_controller = picture_controller;

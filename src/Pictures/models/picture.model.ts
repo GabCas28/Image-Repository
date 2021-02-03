@@ -1,7 +1,8 @@
 import { writeFile } from "fs";
-import { Id } from "../../Common/Models/Id";
+import { Id } from "../../common/models/Id";
+import { Picture } from "../classes/Picture";
 
-export class Controller {
+export class PictureModel {
   private pictures: Picture[];
 
   get [Symbol.toStringTag]() {
@@ -62,7 +63,7 @@ export class Controller {
 
   private getFilteredPictureList(picture: Picture): Picture[] {
     return this.getPictures().filter(
-      (elem) => elem.getId() !== picture.getId()
+      (elem) => elem.getId().toString() !== picture.getId().toString()
     );
   }
 
@@ -78,11 +79,11 @@ export class Controller {
     return this.searchById(picture.getId()) ? true : false;
   }
 
-  private searchById(id: Id): Picture {
+  public searchById(id: Id): Picture {
     return this.getPictures().filter((e) => this.eqId(e.getId(), id))[0];
   }
 
   private eqId(e1: Id, e2: Id) {
-    return e1 === e2;
+    return e1.toString() === e2.toString();
   }
 }

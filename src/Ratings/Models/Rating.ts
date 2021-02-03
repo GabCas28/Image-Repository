@@ -1,4 +1,4 @@
-import { User } from "../../Common/Models/User";
+import { User } from "../../common/models/User";
 
 export class Rating {
   author: User;
