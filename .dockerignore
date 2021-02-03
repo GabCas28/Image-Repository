@@ -1,6 +1,6 @@
 node_modules
 npm-debug.log
-tests
+test
 doc
 package-lock.json
 README.md
