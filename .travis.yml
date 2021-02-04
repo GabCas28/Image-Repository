@@ -1,9 +1,8 @@
 language: node_js
 node_js:
   - "10"
-  - "node"
+  - "15"
 cache: npm
 install:
   - npm ci
-  - npm install -g mocha
 script: npm test
