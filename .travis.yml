@@ -5,4 +5,5 @@ node_js:
 cache: npm
 install:
   - npm ci
+  - npm install -g mocha
 script: npm test
