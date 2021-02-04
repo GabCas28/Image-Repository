@@ -1,9 +1,7 @@
+import { Id } from '../src/common/models/Id';
 var request = require('supertest');
 var app = require("../src/index");
 const samples = require("./samples");
-import { assert, expect } from 'chai';
-import { send } from 'process';
-import { Id } from '../src/common/models/Id';
 
 describe('POST /pictures/ MIDDLEWARE', function () {
 	it('should return a 400 Code and error Response with invalid Picture', function (done) {
