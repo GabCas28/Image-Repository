@@ -6,6 +6,8 @@ node_js:
   - 13
   - 14
   - 15
+cache:
+  - npm
 install:
   - npm ci
 script: npm test
