@@ -23,15 +23,15 @@ const logger = new createLogger({
         format.printf(myFormat)
     ),
     transports: [
-        new transports.File({
-            level: 'info',
-            filename: './logs/all-logs.log',
-            handleExceptions: true,
-            json: true,
-            maxSize: 5242880, //5MB
-            maxFiles: 5,
-            colorize: false
-        }),
+        // new transports.File({
+        //     level: 'info',
+        //     filename: './logs/all-logs.log',
+        //     handleExceptions: true,
+        //     json: true,
+        //     maxSize: 5242880, //5MB
+        //     maxFiles: 5,
+        //     colorize: false
+        // }),
         new transports.Console({
             level: 'debug',
             handleExceptions: true,
