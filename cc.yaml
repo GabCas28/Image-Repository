@@ -1,16 +1,20 @@
 entidad:
-  - src/Picture.ts
-  - src/Rating.ts
-  - src/Review.ts
-  - src/Controller.ts
-  - src/User.ts
-  - src/Id.ts
+  - src/pictures/classes/Picture.ts
+  - src/ratings/models/Rating.ts
+  - src/reviews/models/Review.ts
+  - src/pictures/controllers/picture.controller.ts
+  - src/pictures/models/picture.model.ts
+  - src/pictures/middleware/picture.middleware.ts
+  - src/common/models/User.ts
+  - src/common/models/Id.ts
 lenguaje: typescript
 test: 
-  - test/controller.test.ts
-  - test/id.test.ts
-  - test/picture.test.ts
-  - test/rating.test.ts
-  - test/review.test.ts
+  - test/picture.controller.test.ts
+  - test/picture.model.test.ts
+  - test/picture.class.test.ts
+  - test/picture.middleware.test.ts
+  - test/id.model.test.ts
+  - test/rating.model.test.ts
+  - test/review.model.test.ts
   - test/user.test.ts
 fichero_tareas: package.json
