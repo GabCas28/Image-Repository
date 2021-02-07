@@ -21,7 +21,9 @@
     },
     "scripts": {
         "test": "mocha --exit -r ts-node/register test/**/*.test.ts",
-        "start": "nodemon ./src/index.ts"
+        "start": "nodemon ./src/index.ts",
+        "build": "npm build .",
+        "install": "npm install"
     },
     "repository": {
         "type": "git",
