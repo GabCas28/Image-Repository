@@ -35,7 +35,7 @@ For the distributed configuration, again for its popularity, [`etcd`](https://et
 
 After reading about different logging practices and libraries in [[3]] among other sources. [Winston](https://github.com/winstonjs/winston) is the selected library to use with Express since it is robust and configurable.
 
-The logging configuration is held inside the [winston.ts](../src/common/log/winston.ts) file, that exports a `logger` and a `logger.stream` to be used with [Morgan](https://github.com/expressjs/morgan).
+The logging configuration is held inside the [winston.ts](https://github.com/GabCas28/Image-Repository/blob/main/src/common/log/winston.ts) file, that exports a `logger` and a `logger.stream` to be used with [Morgan](https://github.com/expressjs/morgan).
 
 ## References
 
