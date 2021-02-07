@@ -88,10 +88,10 @@ In order to build the javascript files from the typescript code:
 -----
 
 |  |  | | |  
-| :---        |    :----  |          :--- |  :---        |    :----  | 
-Task 6 -  Composition | [Issues and commits](/doc/T6-progress.md) |[Docker Compose](/doc/Docker-Compose.md) |
-Task 5 - Microservices |[Issues and commits](/doc/T5-progress.md) |[Microservices](/doc/Microservices.md) |
- Task 4 -  Integration |[Progress](/doc/T4-progress.md) | [Continuous Integration](/doc/Continuous-Integration.md) |
+| :---   |  :----  |  :--- |  :--- |
+| Task 6 -  Composition | [Issues and commits](/doc/T6-progress.md) |[Docker Compose](/doc/Docker-Compose.md) |
+| Task 5 - Microservices |[Issues and commits](/doc/T5-progress.md) |[Microservices](/doc/Microservices.md) |
+| Task 4 -  Integration |[Progress](/doc/T4-progress.md) | [Continuous Integration](/doc/Continuous-Integration.md) |
 | Task 3 - Containers  | [Project progress](/doc/T3-progress.md) |[Docker containers](/doc/Docker.md) |
 | Task 2 - Testing |  [Task Runner](/doc/Task-Runner.md) | [Assertion Library](/doc/Assertion-Library.md) |  [Test Framework](/doc/Test-Framework.md) |
 | Task 1 - Planning | [Architecture](/doc/Architecture.md) |[Planning](/doc/Planning.md) |[Initial classes](/doc/Initial-classes.md) |

@@ -33,13 +33,9 @@ The structure of each one of them consists of:
 
 For the distributed configuration, again for its popularity, [`etcd`](https://etcd.io/) is chosen. It provides consistency, availability, speed and security when delivering configuration variables across the microservices.
 
-After reading about different logging practices and libraries in [[3]]. [Pino](https://getpino.io/#/docs/) is the selected library to use with Express since it is fast and has a useful ecosystem.
+After reading about different logging practices and libraries in [[3]] among other sources. [Winston](https://github.com/winstonjs/winston) is the selected library to use with Express since it is robust and configurable.
 
-[//]: # (TODO: Explain the usage and practices when it is all set)
-
-[//]: # (## Tests)
-
-[//]: # (## Progress)
+The logging configuration is held inside the [winston.ts](../src/common/log/winston.ts) file, that exports a `logger` and a `logger.stream` to be used with [Morgan](https://github.com/expressjs/morgan).
 
 ## References
 
