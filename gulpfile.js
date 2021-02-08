@@ -11,7 +11,7 @@ function build(cb) {
 }
 function install(cb) {
 	// place code for your default task here
-	exec('npm install .', function (err, stdout, stderr) {
+	exec('echo install', function (err, stdout, stderr) {
         console.log(stdout);
         console.log(stderr);
         cb(err);
