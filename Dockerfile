@@ -6,7 +6,8 @@ WORKDIR /app
 
 COPY *.json ./ 
 
-RUN npm install .
+RUN npm install -g gulp \
+    && npm install .
 
 USER tester
 
