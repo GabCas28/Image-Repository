@@ -1,6 +1,5 @@
 const { series } = require('gulp');
 var exec = require('child_process').exec;
-const DefaultRegistry = require('undertaker-registry');
 function build(cb) {
 	// place code for your default task here
 	exec('echo build', function (err, stdout, stderr) {
