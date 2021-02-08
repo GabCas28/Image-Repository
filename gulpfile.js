@@ -3,9 +3,9 @@ var exec = require('child_process').exec;
 const DefaultRegistry = require('undertaker-registry');
 function build(cb) {
 	// place code for your default task here
-	exec('npm build .', function (err, stdout, stderr) {
-        console.log(stdout);
-        console.log(stderr);
+	exec('echo build', function (err, stdout, stderr) {
+        if (stdout) console.log(stdout);
+        if (stderr) console.log(stderr);
         cb(err);
       });
 }
