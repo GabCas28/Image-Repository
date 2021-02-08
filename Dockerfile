@@ -9,4 +9,6 @@ COPY *.json gulpfile.js ./
 RUN npm install -g gulp \
     && npm install .
 
+USER tester
+
 CMD npm test
