@@ -4,7 +4,7 @@ RUN useradd -ms /bin/bash tester
 
 WORKDIR /app
 
-COPY *.json ./ 
+COPY *.json gulpfile.js ./ 
 
 RUN npm install -g gulp \
     && npm install .
