@@ -1,14 +1,24 @@
 module.exports = {
-    "port": 3600,
-    "appEndpoint": "http://localhost:3600",
-    "apiEndpoint": "http://localhost:3600",
-    "webEndpoint": "http://localhost:4200",
-    "jwt_secret": "myS33!!creeeT",
-    "jwt_expiration_in_seconds": 36000,
-    "environment": "dev",
-    "permissionLevels": {
-        "NORMAL_USER": 1,
-        "PAID_USER": 4,
-        "ADMIN": 2048
-    }
+	port: Number(process.env.SERVER_PORT) || 5000,
+	appEndpoint: 'http://localhost:5000',
+	apiEndpoint: 'http://localhost:5000',
+	environment: 'dev',
+	permissionLevels: {
+		NORMAL_USER: 1,
+		PAID_USER: 4,
+		ADMIN: 2048
+	},
+	rabbit: {
+		host: process.env.RABBITMQ_HOST || 'localhost',
+		port: process.env.RABBITMQ_PORT || 5672
+	},
+	endpoints: {
+		pictures: '/pictures',
+	},
+	proxies: {
+		pictures: {
+			domain: 'pictures',
+			port: 3600
+		},
+	}
 };

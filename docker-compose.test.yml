@@ -1,0 +1,38 @@
+version: '2' 
+services:
+  sut:
+    build: 
+      context: .
+      dockerfile: integration.Dockerfile
+    volumes: 
+      - ./src/:/app/src/
+      - ./integration/:/app/integration/
+    depends_on:
+      - gateway
+      - pictures
+      - unit
+  unit:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes: 
+      - ./src/:/app/src/
+      - ./test/:/app/test/
+  gateway:
+    image: image-repo/gateway
+    build: 
+        context: .
+        dockerfile: gateway.Dockerfile
+        cache_from:
+          - gabcas28/ubuntu-node-mocha
+    ports:
+      - "5000:5000"
+    depends_on: 
+      - pictures
+  pictures:
+    image: image-repo/pictures
+    build: 
+        context: .
+        dockerfile: pictures.Dockerfile
+        cache_from:
+          - gabcas28/ubuntu-node-mocha

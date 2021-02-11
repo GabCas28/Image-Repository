@@ -46,4 +46,8 @@ logger.stream = {
         logger.info(message);
     }
 };
+logger.emitError = function(err:any, req:any, res:any, next:any) {
+	logger.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
+	next(err)
+  }
 module.exports = logger;

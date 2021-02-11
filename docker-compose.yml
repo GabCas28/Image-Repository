@@ -1,0 +1,17 @@
+services:
+  gateway:
+    image: image-repo/gateway
+    build: 
+        context: .
+        dockerfile: gateway.Dockerfile
+        cache_from:
+          - gabcas28/ubuntu-node-mocha
+    ports:
+      - "5000:5000"
+  pictures:
+    image: image-repo/pictures
+    build: 
+        context: .
+        dockerfile: pictures.Dockerfile
+        cache_from:
+          - gabcas28/ubuntu-node-mocha
