@@ -23,8 +23,6 @@ services:
     build: 
         context: .
         dockerfile: gateway.Dockerfile
-        cache_from:
-          - gabcas28/ubuntu-node-mocha
     ports:
       - "5000:5000"
     depends_on: 
@@ -34,5 +32,3 @@ services:
     build: 
         context: .
         dockerfile: pictures.Dockerfile
-        cache_from:
-          - gabcas28/ubuntu-node-mocha
